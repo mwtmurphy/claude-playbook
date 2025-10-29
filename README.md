@@ -13,19 +13,19 @@ This repository serves two primary audiences:
 
 | Standard | Description | File |
 |----------|-------------|------|
-| **Python Style** | PEP 8 compliance, naming conventions, type hints, formatting | [python_style.md](.claude/python_style.md) |
-| **SQL Style** | SQL formatting standards, naming conventions, query layout | [sql_style.md](.claude/sql_style.md) |
-| **Architecture Patterns** | Framework-agnostic design principles, modularity, file organization | [architecture_patterns.md](.claude/architecture_patterns.md) |
-| **Testing Standards** | pytest best practices, coverage targets, test patterns | [testing_standards.md](.claude/testing_standards.md) |
-| **Documentation Standards** | Docstring requirements, README specs, inline comments | [documentation_standards.md](.claude/documentation_standards.md) |
-| **Git Workflow** | Conventional Commits, branch naming, PR guidelines | [git_workflow.md](.claude/git_workflow.md) |
-| **Claude Workflow** | Claude Code planning workflow, plan documentation, task tracking | [claude_workflow.md](.claude/claude_workflow.md) |
-| **Error Handling** | Exception patterns, logging standards, graceful degradation | [error_handling.md](.claude/error_handling.md) |
-| **Database Standards** | SQL file organization, query optimization, migration conventions | [database_standards.md](.claude/database_standards.md) |
-| **Performance Considerations** | Algorithm complexity, profiling, caching, optimization approach | [performance_considerations.md](.claude/performance_considerations.md) |
-| **Environment Setup** | pyenv and poetry setup, Python version selection, dependency management | [environment_setup.md](.claude/environment_setup.md) |
-| **Streamlit Standards** | Streamlit-specific patterns, state management, component organization | [streamlit_standards.md](.claude/streamlit_standards.md) |
-| **Project Setup Prompt** | Reusable prompt for creating project-level reference files | [project_setup_prompt.md](.claude/project_setup_prompt.md) |
+| **Python Style** | PEP 8 compliance, naming conventions, type hints, formatting | [python_style.md](claude/python_style.md) |
+| **SQL Style** | SQL formatting standards, naming conventions, query layout | [sql_style.md](claude/sql_style.md) |
+| **Architecture Patterns** | Framework-agnostic design principles, modularity, file organization | [architecture_patterns.md](claude/architecture_patterns.md) |
+| **Testing Standards** | pytest best practices, coverage targets, test patterns | [testing_standards.md](claude/testing_standards.md) |
+| **Documentation Standards** | Docstring requirements, README specs, inline comments | [documentation_standards.md](claude/documentation_standards.md) |
+| **Git Workflow** | Conventional Commits, branch naming, PR guidelines | [git_workflow.md](claude/git_workflow.md) |
+| **Claude Workflow** | Claude Code planning workflow, plan documentation, task tracking | [claude_workflow.md](claude/claude_workflow.md) |
+| **Error Handling** | Exception patterns, logging standards, graceful degradation | [error_handling.md](claude/error_handling.md) |
+| **Database Standards** | SQL file organization, query optimization, migration conventions | [database_standards.md](claude/database_standards.md) |
+| **Performance Considerations** | Algorithm complexity, profiling, caching, optimization approach | [performance_considerations.md](claude/performance_considerations.md) |
+| **Environment Setup** | pyenv and poetry setup, Python version selection, dependency management | [environment_setup.md](claude/environment_setup.md) |
+| **Streamlit Standards** | Streamlit-specific patterns, state management, component organization | [streamlit_standards.md](claude/streamlit_standards.md) |
+| **Project Setup Prompt** | Reusable prompt for creating project-level reference files | [project_setup_prompt.md](claude/project_setup_prompt.md) |
 
 ## Using with Claude Code
 
@@ -34,9 +34,9 @@ This repository serves two primary audiences:
 Claude Code can reference these standards directly from this repository using raw GitHub URLs. Add these to your Claude Code settings or context:
 
 ```
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/sql_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/architecture_patterns.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/sql_style.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/architecture_patterns.md
 ```
 
 ### Example Configuration
@@ -59,7 +59,7 @@ Visit the [GitHub Wiki](https://github.com/mwtmurphy/playbook/wiki) for:
 - Best practices summaries
 - FAQs and troubleshooting tips
 
-The Wiki provides curated, accessible content while the `.claude/` directory contains detailed technical specifications optimized for Claude Code consumption.
+The Wiki provides curated, accessible content while the `claude/` directory contains detailed technical specifications optimized for Claude Code consumption.
 
 ## Repository Structure
 
@@ -67,7 +67,8 @@ The Wiki provides curated, accessible content while the `.claude/` directory con
 playbook/
 ├── README.md                    # This file - project overview
 ├── USAGE.md                     # Detailed integration guide
-└── .claude/                     # Standards reference files
+├── wiki/                        # GitHub Wiki documentation
+└── claude/                      # Standards reference files
     ├── README.md                # Standards directory guide
     ├── python_style.md          # Python coding standards
     ├── sql_style.md             # SQL coding standards

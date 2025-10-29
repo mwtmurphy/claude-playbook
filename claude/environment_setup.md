@@ -141,7 +141,7 @@ my-project/
 ├── poetry.lock              # Lock file with exact versions
 ├── README.md                # Project documentation
 ├── .gitignore               # Git ignore rules
-├── .claude/                 # Project-specific standards (optional)
+├── claude/                  # Project-specific standards (optional)
 ├── src/
 │   └── my_project/
 │       ├── __init__.py

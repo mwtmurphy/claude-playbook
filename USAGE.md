@@ -26,9 +26,9 @@ Choose which standards apply to your project:
 Use raw GitHub URLs to reference standards:
 
 ```
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/sql_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/testing_standards.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/sql_style.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md
 ```
 
 ### 3. Configure Claude Code
@@ -39,14 +39,14 @@ Add these URLs to your project's Claude Code configuration or provide them in yo
 
 ### Method 1: Project-Level Settings
 
-Create or update `.claude/settings.json` in your project:
+Create or update `claude/settings.json` in your project:
 
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/testing_standards.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/architecture_patterns.md"
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/architecture_patterns.md"
   ]
 }
 ```
@@ -57,8 +57,8 @@ When starting a Claude Code session, provide standards in your initial prompt:
 
 ```
 Please reference these standards while working:
-- https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md
-- https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/sql_style.md
+- https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
+- https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/sql_style.md
 
 Help me implement a user authentication system following these standards.
 ```
@@ -69,10 +69,10 @@ For projects that need customization:
 
 ```bash
 # Copy standards to your project
-mkdir -p .claude
-cd .claude
-curl -O https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md
-curl -O https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/testing_standards.md
+mkdir -p claude
+cd claude
+curl -O https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
+curl -O https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md
 # Customize as needed for your project
 ```
 
@@ -122,7 +122,7 @@ Add: streamlit_standards.md, database_standards.md
 
 Keep commonly customized standards local, reference stable ones remotely:
 
-**Local (in project .claude/):**
+**Local (in project claude/):**
 - `architecture_patterns.md` (customized for your domain)
 - `streamlit_standards.md` (project-specific components)
 
@@ -143,15 +143,15 @@ git init
 poetry init
 
 # 2. Create Claude Code configuration
-mkdir .claude
-cat > .claude/settings.json << EOF
+mkdir claude
+cat > claude/settings.json << EOF
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/testing_standards.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/documentation_standards.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/architecture_patterns.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/git_workflow.md"
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/documentation_standards.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/architecture_patterns.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/git_workflow.md"
   ]
 }
 EOF
@@ -165,11 +165,11 @@ claude-code
 
 ```bash
 # 1. Add standards gradually
-mkdir -p .claude
-cat > .claude/settings.json << EOF
+mkdir -p claude
+cat > claude/settings.json << EOF
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md"
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md"
   ]
 }
 EOF
@@ -186,11 +186,11 @@ claude-code
 
 ```bash
 # Add Streamlit-specific standards
-cat > .claude/settings.json << EOF
+cat > claude/settings.json << EOF
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/streamlit_standards.md"
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/streamlit_standards.md"
   ]
 }
 EOF
@@ -220,10 +220,10 @@ Regularly check for updates to the playbook repository:
 
 ```bash
 # If using local copies
-cd .claude
+cd claude
 git remote add playbook https://github.com/mwtmurphy/playbook.git
 git fetch playbook
-git diff HEAD:python_style.md playbook/main:.claude/python_style.md
+git diff HEAD:python_style.md playbook/main:claude/python_style.md
 ```
 
 ### 4. Selective Application
@@ -249,7 +249,7 @@ This project follows the [mwtmurphy/playbook](https://github.com/mwtmurphy/playb
 - Testing: [Link]
 - Git Workflow: [Link]
 
-See .claude/settings.json for full list of referenced standards.
+See claude/settings.json for full list of referenced standards.
 ```
 
 ## Troubleshooting
@@ -260,7 +260,7 @@ See .claude/settings.json for full list of referenced standards.
 
 **Solutions**:
 1. Verify the raw GitHub URLs are accessible
-2. Check `.claude/settings.json` syntax is valid
+2. Check `claude/settings.json` syntax is valid
 3. Explicitly mention standards in your prompts
 4. Ensure standards are appropriate for your context
 
@@ -280,7 +280,7 @@ See .claude/settings.json for full list of referenced standards.
 **Solutions**:
 1. Use specific commit URLs instead of `main`:
    ```
-   https://raw.githubusercontent.com/mwtmurphy/playbook/<commit-sha>/.claude/python_style.md
+   https://raw.githubusercontent.com/mwtmurphy/playbook/<commit-sha>/claude/python_style.md
    ```
 2. Copy standards locally and version control them
 3. Update gradually when ready
@@ -302,7 +302,7 @@ See .claude/settings.json for full list of referenced standards.
 Extend playbook standards with project-specific rules:
 
 ```bash
-# .claude/project_standards.md
+# claude/project_standards.md
 # Project-Specific Standards
 
 This project extends the playbook standards with:
@@ -338,7 +338,7 @@ jobs:
       - name: Check Python Style
         run: |
           # Download standards
-          curl -O https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md
+          curl -O https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
           # Run Claude Code to review PR against standards
           claude-code review --standards python_style.md
 ```
@@ -350,7 +350,7 @@ Reference standards from multiple playbooks:
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
     "https://raw.githubusercontent.com/another-org/js-playbook/main/javascript_style.md"
   ]
 }

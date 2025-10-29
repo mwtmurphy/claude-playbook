@@ -196,7 +196,7 @@ project_name/
 ├── pyproject.toml          # Poetry configuration
 ├── .python-version         # pyenv version
 ├── README.md               # Project documentation
-├── .claude/                # Project-specific standards (optional)
+├── claude/                 # Project-specific standards (optional)
 ├── src/
 │   └── project_name/
 │       ├── __init__.py
@@ -220,7 +220,7 @@ project_name/
 ├── pyproject.toml
 ├── .python-version
 ├── README.md
-├── .claude/
+├── claude/
 ├── src/
 │   └── project_name/
 │       ├── __init__.py
@@ -256,7 +256,7 @@ project_name/
 ├── pyproject.toml
 ├── .python-version
 ├── README.md
-├── .claude/
+├── claude/
 ├── src/
 │   └── project_name/
 │       ├── __init__.py

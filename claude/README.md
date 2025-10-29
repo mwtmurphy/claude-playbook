@@ -25,9 +25,9 @@ These reference files establish **strong preferences** for development practices
 Claude Code in other projects can reference these standards using raw GitHub URLs:
 
 ```
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/python_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/sql_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/.claude/architecture_patterns.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/sql_style.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/architecture_patterns.md
 ```
 
 Add these URLs to Claude Code settings or context to provide standards during development sessions.
@@ -57,7 +57,7 @@ These standards are **advisory guidelines with strong preference weight**, not r
 
 ### Project-Level Standards
 
-Individual projects may have their own `.claude/` directories containing:
+Individual projects may have their own `claude/` directories containing:
 - Framework-specific patterns (Django, FastAPI, Flask, etc.)
 - Database-specific conventions (PostgreSQL, MySQL, SQLite)
 - API specifications and schemas
@@ -104,7 +104,7 @@ These reference files are **living documents** but should be updated deliberatel
 4. **Apply coding standards**: Follow `python_style.md`, `sql_style.md`, and `documentation_standards.md` from the start
 5. **Set up testing**: Implement per `testing_standards.md`
 6. **Configure git workflow**: Follow `git_workflow.md`
-7. **Optional**: Use `project_setup_prompt.md` with Claude Code to create project-specific `.claude/` files
+7. **Optional**: Use `project_setup_prompt.md` with Claude Code to create project-specific `claude/` files
 
 ### For Existing Projects
 
@@ -117,7 +117,7 @@ These reference files are **living documents** but should be updated deliberatel
 ### Integration Methods
 
 - **Remote reference** (recommended): Add raw GitHub URLs to Claude Code settings for live updates
-- **Local copy**: Clone or copy specific standards into project `.claude/` directory
+- **Local copy**: Clone or copy specific standards into project `claude/` directory
 - **Hybrid**: Reference some standards remotely, customize others locally
 
 ## Questions or Updates

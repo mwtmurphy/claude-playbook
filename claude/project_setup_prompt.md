@@ -9,7 +9,7 @@
 ## Prompt to Copy
 
 ```
-I have workspace-level development standards at /Users/mwtmurphy/projects/.claude/ that define:
+I have centralized development standards at https://github.com/mwtmurphy/playbook/tree/main/claude that define:
 - Python style (PEP 8, type hints, formatting)
 - SQL style (BigQuery dialect, CTE patterns)
 - Architecture patterns (framework-agnostic)
@@ -21,7 +21,7 @@ I have workspace-level development standards at /Users/mwtmurphy/projects/.claud
 - Performance considerations
 - Environment setup (pyenv, poetry)
 
-**Task**: Analyze this project and create appropriate project-level reference files in `.claude/` that EXTEND (not duplicate) these workspace standards.
+**Task**: Analyze this project and create appropriate project-level reference files in `claude/` that EXTEND (not duplicate) these workspace standards.
 
 **Analysis Steps**:
 1. Examine the project structure, files, and dependencies
@@ -31,7 +31,7 @@ I have workspace-level development standards at /Users/mwtmurphy/projects/.claud
 
 **Project-Level Standards to Create** (only if applicable):
 
-Create `.claude/` files for:
+Create `claude/` files for:
 - **Framework-specific patterns**: Django/FastAPI/Flask conventions, middleware, routing, serialization
 - **API specifications**: Endpoint patterns, request/response formats, authentication
 - **Database specifics**: PostgreSQL/MySQL/SQLite conventions, ORM patterns, query guidelines
@@ -80,18 +80,18 @@ After analysis, propose the project-level files to create and ask for approval b
 ## Example: Django Project
 
 For a Django project, you might create:
-- `.claude/django_patterns.md` - Model patterns, view conventions, admin customization
-- `.claude/api_specifications.md` - DRF serializers, viewsets, permission classes
-- `.claude/business_rules.md` - Order processing, user roles, payment flows
-- `.claude/integration_guide.md` - Stripe API, SendGrid, Redis caching
+- `claude/django_patterns.md` - Model patterns, view conventions, admin customization
+- `claude/api_specifications.md` - DRF serializers, viewsets, permission classes
+- `claude/business_rules.md` - Order processing, user roles, payment flows
+- `claude/integration_guide.md` - Stripe API, SendGrid, Redis caching
 
 ## Example: Data Pipeline Project
 
 For a data pipeline, you might create:
-- `.claude/data_models.md` - Schema definitions, validation rules
-- `.claude/etl_patterns.md` - Extraction, transformation, loading conventions
-- `.claude/airflow_dags.md` - DAG structure, task dependencies, scheduling
-- `.claude/data_quality.md` - Validation rules, data contracts, monitoring
+- `claude/data_models.md` - Schema definitions, validation rules
+- `claude/etl_patterns.md` - Extraction, transformation, loading conventions
+- `claude/airflow_dags.md` - DAG structure, task dependencies, scheduling
+- `claude/data_quality.md` - Validation rules, data contracts, monitoring
 
 ---
 
