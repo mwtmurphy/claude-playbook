@@ -94,7 +94,7 @@ When a plan is approved by the user, Claude Code **MUST**:
 ```markdown
 # Plan: Upgrade Dev Tools for Python 3.13 Support
 
-**Created**: 2025-10-19T15:30:00
+**Created**: 2025-10-19T15:30:00Z
 **Status**: In Progress
 **Estimated Complexity**: Medium
 
@@ -229,7 +229,7 @@ Example addition to plan file:
 ```markdown
 ## Plan Updates
 
-### 2025-10-19T16:45:00 - Added Task
+### 2025-10-19T16:45:00Z - Added Task
 User requested additional feature: [description]
 Added new task: [task details]
 ```
