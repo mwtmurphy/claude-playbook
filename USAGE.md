@@ -8,7 +8,11 @@ This guide explains how to integrate the playbook standards into your projects u
 - [Claude Code Configuration](#claude-code-configuration)
 - [Integration Patterns](#integration-patterns)
 - [Example Workflows](#example-workflows)
+- [Best Practices](#best-practices)
+- [Reference Configuration Strategies](#reference-configuration-strategies)
 - [Troubleshooting](#troubleshooting)
+- [Advanced Usage](#advanced-usage)
+- [Support](#support)
 
 ## Quick Start
 
@@ -252,6 +256,274 @@ This project follows the [mwtmurphy/playbook](https://github.com/mwtmurphy/playb
 See claude/settings.json for full list of referenced standards.
 ```
 
+## Reference Configuration Strategies
+
+### Choosing Between Local and URL References
+
+There are three main approaches to referencing standards, each with different trade-offs:
+
+#### Option 1: URL References (Recommended for Teams)
+
+**Use remote GitHub URLs directly:**
+
+```json
+{
+  "references": [
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md"
+  ]
+}
+```
+
+**Advantages:**
+- ✓ Works identically for all team members
+- ✓ No local setup required
+- ✓ Automatically gets latest updates
+- ✓ Portable across machines
+- ✓ Easy to share configurations
+
+**Disadvantages:**
+- ✗ Requires internet connection
+- ✗ Standards can change unexpectedly
+- ✗ No control over update timing
+
+**Best for**: Team projects, distributed teams, CI/CD pipelines
+
+#### Option 2: URL with Version Pinning (Recommended for Production)
+
+**Reference specific versions using tags:**
+
+```json
+{
+  "references": [
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/testing_standards.md"
+  ]
+}
+```
+
+**Advantages:**
+- ✓ All benefits of URL references
+- ✓ Standards frozen at specific version (no surprises)
+- ✓ Deliberate, controlled updates
+- ✓ Can review changelogs before updating
+
+**Disadvantages:**
+- ✗ Requires internet connection
+- ✗ Manual version updates needed
+
+**Best for**: Production projects, teams wanting stability, critical systems
+
+**Updating to new versions:**
+```bash
+# Review changes
+git diff v1.0.0..v1.1.0 claude/python_style.md
+
+# Update settings.json
+# Change v1.0.0 → v1.1.0
+# Test thoroughly
+# Rollout to team
+```
+
+#### Option 3: Local Clone
+
+**Clone playbook locally and reference local paths:**
+
+```bash
+# Clone playbook
+git clone https://github.com/mwtmurphy/playbook.git ~/playbook
+
+# Reference in settings.json
+{
+  "references": [
+    "/Users/username/playbook/claude/python_style.md",
+    "/Users/username/playbook/claude/testing_standards.md"
+  ]
+}
+```
+
+**Advantages:**
+- ✓ Offline access
+- ✓ Fast file access (no network latency)
+- ✓ Full version control (git history)
+- ✓ Can test changes locally
+
+**Disadvantages:**
+- ✗ Path differs per developer
+- ✗ Manual sync required (`git pull`)
+- ✗ Risk of stale standards
+- ✗ Team coordination needed
+
+**Best for**: Contributors to playbook, offline-required environments, testing standards changes
+
+#### Option 4: Hybrid Approach (Recommended for Flexibility)
+
+**Combine URL and local references:**
+
+```json
+{
+  "references": [
+    // Core standards - URL with version pinning
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/sql_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/testing_standards.md",
+
+    // Project-specific - local files
+    "./claude/api_specifications.md",
+    "./claude/business_rules.md",
+    "./claude/django_patterns.md"
+  ]
+}
+```
+
+**When to use what:**
+
+| Content Type | Use URL | Use Local |
+|--------------|---------|-----------|
+| Language style guides | ✓ | |
+| Architecture patterns | ✓ | |
+| Testing standards | ✓ | |
+| Git workflow | ✓ | |
+| Framework patterns | | ✓ |
+| API specifications | | ✓ |
+| Business rules | | ✓ |
+| Domain models | | ✓ |
+
+**Why hybrid**: Core standards benefit from team consistency and updates; project-specific content belongs in the project repository.
+
+### Configuration File Patterns
+
+#### Team Configuration (Committed)
+
+**File**: `claude/settings.json` (committed to git)
+
+```json
+{
+  "references": [
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.2.0/claude/python_style.md",
+    "./claude/api_specifications.md"
+  ]
+}
+```
+
+**Purpose**: Shared team configuration ensuring consistency
+
+#### Developer Overrides (Gitignored)
+
+**File**: `.claude/settings.local.json` (gitignored)
+
+```json
+{
+  "references": [
+    "/Users/alice/dev/playbook/claude/python_style.md"
+  ]
+}
+```
+
+**Purpose**: Local overrides for testing or development without affecting team
+
+**Add to .gitignore:**
+```bash
+echo ".claude/settings.local.json" >> .gitignore
+```
+
+**Use case**: When contributing to playbook or testing standards changes before team adoption.
+
+### Migration Guide: Local to URL References
+
+If you're currently using local clones, here's how to migrate:
+
+**Current setup (local):**
+```json
+{
+  "references": [
+    "/Users/username/playbook/claude/python_style.md"
+  ]
+}
+```
+
+**Step 1: Find latest playbook version**
+```bash
+# Check latest tag
+git ls-remote --tags https://github.com/mwtmurphy/playbook.git
+```
+
+**Step 2: Update settings.json**
+```json
+{
+  "references": [
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md"
+  ]
+}
+```
+
+**Step 3: Test**
+```bash
+# Start Claude Code session and verify standards are loading
+claude-code
+```
+
+**Step 4: Commit and share with team**
+```bash
+git add claude/settings.json
+git commit -m "feat(config): migrate to URL-based standard references"
+git push
+```
+
+**Step 5: Clean up local clone (optional)**
+```bash
+# No longer needed unless contributing to playbook
+rm -rf ~/playbook
+```
+
+### Version Update Workflow
+
+**When new playbook versions are released:**
+
+**1. Review changelog:**
+```bash
+# View changes between versions
+git diff v1.0.0..v1.1.0 --name-only
+git diff v1.0.0..v1.1.0 claude/python_style.md
+```
+
+**2. Test in development:**
+```json
+// .claude/settings.local.json
+{
+  "references": [
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.1.0/claude/python_style.md"
+  ]
+}
+```
+
+**3. Validate with team:**
+- Test on sample code
+- Review any breaking changes
+- Check for conflicts with project-specific patterns
+
+**4. Update team configuration:**
+```json
+// claude/settings.json
+{
+  "references": [
+    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.1.0/claude/python_style.md"  // Updated
+  ]
+}
+```
+
+**5. Communicate:**
+```markdown
+PR #123: Update playbook standards to v1.1.0
+
+Changes in this version:
+- Updated Black version to 24.10.0
+- Added new error handling patterns
+- Fixed British English inconsistencies
+
+See full changelog: https://github.com/mwtmurphy/playbook/releases/tag/v1.1.0
+```
+
 ## Troubleshooting
 
 ### Standards Not Being Applied
@@ -359,10 +631,10 @@ Reference standards from multiple playbooks:
 ## Support
 
 - **Issues**: [GitHub Issues](https://github.com/mwtmurphy/playbook/issues)
-- **Wiki**: [Human-friendly guides](https://github.com/mwtmurphy/playbook/wiki)
+- **Documentation**: See `claude/reference_guide.md` for creating standards
 - **Updates**: Watch the repository for changes
 
 ---
 
-**Last Updated**: 2025-10-29
+**Last Updated**: 2025-10-30
 **Repository**: [mwtmurphy/playbook](https://github.com/mwtmurphy/playbook)

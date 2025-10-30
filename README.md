@@ -23,12 +23,23 @@ This repository serves as a reference for Claude Code integration. Standards fil
 | **Environment Setup** | pyenv and poetry setup, Python version selection, dependency management | [environment_setup.md](claude/environment_setup.md) |
 | **Streamlit Standards** | Streamlit-specific patterns, state management, component organization | [streamlit_standards.md](claude/streamlit_standards.md) |
 | **Project Setup Prompt** | Reusable prompt for creating project-level reference files | [project_setup_prompt.md](claude/project_setup_prompt.md) |
+| **Reference Guide** | Best practices for building and organising Claude Code reference documentation | [reference_guide.md](claude/reference_guide.md) |
 
 ## Using with Claude Code
 
 ### Remote File References
 
-Claude Code can reference these standards directly from this repository using raw GitHub URLs. Add these to your Claude Code settings or context:
+Claude Code can reference these standards directly from this repository using raw GitHub URLs.
+
+**Recommended: Use version tags for stability**
+
+```
+https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/sql_style.md
+https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/architecture_patterns.md
+```
+
+**Alternative: Use main branch for latest updates**
 
 ```
 https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
@@ -36,9 +47,11 @@ https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/sql_style.md
 https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/architecture_patterns.md
 ```
 
+**Why version tags?** Version pinning provides stability (no unexpected changes) whilst allowing deliberate, controlled updates. See [USAGE.md](USAGE.md#reference-configuration-strategies) for detailed comparison of approaches.
+
 ### Example Configuration
 
-For detailed integration instructions and examples, see [USAGE.md](USAGE.md).
+For detailed integration instructions, configuration strategies, and examples, see [USAGE.md](USAGE.md).
 
 ### Benefits
 
@@ -67,7 +80,8 @@ playbook/
     ├── performance_considerations.md
     ├── environment_setup.md
     ├── streamlit_standards.md
-    └── project_setup_prompt.md
+    ├── project_setup_prompt.md
+    └── reference_guide.md       # Meta-guidance for creating standards
 ```
 
 ## Philosophy
