@@ -25,9 +25,9 @@ These reference files establish **strong preferences** for development practices
 Claude Code in other projects can reference these standards using raw GitHub URLs:
 
 ```
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/sql_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/architecture_patterns.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/sql_style.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/architecture_patterns.md
 ```
 
 Add these URLs to Claude Code settings or context to provide standards during development sessions.
@@ -130,6 +130,6 @@ If you need to:
 ---
 
 **Last Updated**: 2025-10-29
-**Repository**: [mwtmurphy/playbook](https://github.com/mwtmurphy/playbook)
+**Repository**: [mwtmurphy/claude-playbook](https://github.com/mwtmurphy/claude-playbook)
 **Scope**: Python and SQL projects using pyenv and poetry
 **Status**: Active - Strong preferences with justified deviations allowed

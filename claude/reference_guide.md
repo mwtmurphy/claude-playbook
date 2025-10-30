@@ -259,13 +259,13 @@ There are three approaches to referencing standards:
 **Implementation:**
 ```bash
 # Clone playbook to local machine
-git clone https://github.com/mwtmurphy/playbook.git ~/playbook
+git clone https://github.com/mwtmurphy/claude-playbook.git ~/claude-playbook
 
 # Reference in project (claude/settings.json)
 {
   "references": [
-    "/Users/username/playbook/claude/python_style.md",
-    "/Users/username/playbook/claude/testing_standards.md"
+    "/Users/username/claude-playbook/claude/python_style.md",
+    "/Users/username/claude-playbook/claude/testing_standards.md"
   ]
 }
 ```
@@ -277,7 +277,7 @@ git clone https://github.com/mwtmurphy/playbook.git ~/playbook
 - Fast file access
 
 **Cons:**
-- Path differs per developer (`~/playbook` vs `/Users/alice/playbook`)
+- Path differs per developer (`~/claude-playbook` vs `/Users/alice/playbook`)
 - Manual sync required (`git pull` to update)
 - Risk of stale standards if developers forget to update
 - Absolute paths are machine-specific
@@ -288,8 +288,8 @@ git clone https://github.com/mwtmurphy/playbook.git ~/playbook
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/testing_standards.md"
   ]
 }
 ```
@@ -311,7 +311,7 @@ git clone https://github.com/mwtmurphy/playbook.git ~/playbook
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/python_style.md"
   ]
 }
 ```
@@ -327,9 +327,9 @@ git clone https://github.com/mwtmurphy/playbook.git ~/playbook
 {
   "references": [
     // Core standards - use URLs with version tags
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.2.0/claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.2.0/claude/sql_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.2.0/claude/testing_standards.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.2.0/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.2.0/claude/sql_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.2.0/claude/testing_standards.md",
 
     // Project-specific - local files
     "./claude/api_specifications.md",
@@ -362,7 +362,7 @@ git clone https://github.com/mwtmurphy/playbook.git ~/playbook
 // claude/settings.json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.2.0/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.2.0/claude/python_style.md",
     "./claude/django_patterns.md"
   ]
 }
@@ -374,7 +374,7 @@ git clone https://github.com/mwtmurphy/playbook.git ~/playbook
 // .claude/settings.local.json
 {
   "references": [
-    "/Users/alice/playbook/claude/python_style.md"  // Override for testing
+    "/Users/alice/claude-playbook/claude/python_style.md"  // Override for testing
   ]
 }
 ```
@@ -426,7 +426,7 @@ git push origin v1.0.0
 # Reference in project
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/python_style.md"
   ]
 }
 ```
@@ -439,7 +439,7 @@ git push origin v1.0.0
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/python_style.md"
   ]
 }
 ```
@@ -452,7 +452,7 @@ git push origin v1.0.0
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md"
   ]
 }
 ```
@@ -509,7 +509,7 @@ Use Black for formatting with 88 character lines...
 ## Overview
 
 This project follows workspace Python and architecture standards from the
-[playbook](https://github.com/mwtmurphy/playbook). This document adds
+[playbook](https://github.com/mwtmurphy/claude-playbook). This document adds
 API-specific conventions for our REST endpoints.
 
 **Why**: Consistent API design improves developer experience and reduces
@@ -557,8 +557,8 @@ All responses use this envelope:
 
 ## Related Standards
 
-- See [python_style.md](https://github.com/mwtmurphy/playbook/blob/main/claude/python_style.md) for code formatting
-- See [error_handling.md](https://github.com/mwtmurphy/playbook/blob/main/claude/error_handling.md) for exception patterns
+- See [python_style.md](https://github.com/mwtmurphy/claude-playbook/blob/main/claude/python_style.md) for code formatting
+- See [error_handling.md](https://github.com/mwtmurphy/claude-playbook/blob/main/claude/error_handling.md) for exception patterns
 - See `database_standards.md` locally for schema details
 
 ---

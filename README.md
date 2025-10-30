@@ -34,17 +34,17 @@ Claude Code can reference these standards directly from this repository using ra
 **Recommended: Use version tags for stability**
 
 ```
-https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/sql_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/architecture_patterns.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/python_style.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/sql_style.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/architecture_patterns.md
 ```
 
 **Alternative: Use main branch for latest updates**
 
 ```
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/sql_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/architecture_patterns.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/sql_style.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/architecture_patterns.md
 ```
 
 **Why version tags?** Version pinning provides stability (no unexpected changes) whilst allowing deliberate, controlled updates. See [USAGE.md](USAGE.md#reference-configuration-strategies) for detailed comparison of approaches.
@@ -63,7 +63,7 @@ For detailed integration instructions, configuration strategies, and examples, s
 ## Repository Structure
 
 ```
-playbook/
+claude-playbook/
 ├── README.md                    # This file - project overview
 ├── USAGE.md                     # Detailed integration guide
 └── claude/                      # Standards reference files

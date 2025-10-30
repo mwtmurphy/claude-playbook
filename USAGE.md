@@ -30,9 +30,9 @@ Choose which standards apply to your project:
 Use raw GitHub URLs to reference standards:
 
 ```
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/sql_style.md
-https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/sql_style.md
+https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/testing_standards.md
 ```
 
 ### 3. Configure Claude Code
@@ -48,9 +48,9 @@ Create or update `claude/settings.json` in your project:
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/architecture_patterns.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/testing_standards.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/architecture_patterns.md"
   ]
 }
 ```
@@ -61,8 +61,8 @@ When starting a Claude Code session, provide standards in your initial prompt:
 
 ```
 Please reference these standards while working:
-- https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
-- https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/sql_style.md
+- https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md
+- https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/sql_style.md
 
 Help me implement a user authentication system following these standards.
 ```
@@ -75,8 +75,8 @@ For projects that need customization:
 # Copy standards to your project
 mkdir -p claude
 cd claude
-curl -O https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
-curl -O https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md
+curl -O https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md
+curl -O https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/testing_standards.md
 # Customize as needed for your project
 ```
 
@@ -151,11 +151,11 @@ mkdir claude
 cat > claude/settings.json << EOF
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/documentation_standards.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/architecture_patterns.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/git_workflow.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/testing_standards.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/documentation_standards.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/architecture_patterns.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/git_workflow.md"
   ]
 }
 EOF
@@ -173,7 +173,7 @@ mkdir -p claude
 cat > claude/settings.json << EOF
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md"
   ]
 }
 EOF
@@ -193,8 +193,8 @@ claude-code
 cat > claude/settings.json << EOF
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/streamlit_standards.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/streamlit_standards.md"
   ]
 }
 EOF
@@ -225,9 +225,9 @@ Regularly check for updates to the playbook repository:
 ```bash
 # If using local copies
 cd claude
-git remote add playbook https://github.com/mwtmurphy/playbook.git
-git fetch playbook
-git diff HEAD:python_style.md playbook/main:claude/python_style.md
+git remote add upstream https://github.com/mwtmurphy/claude-playbook.git
+git fetch upstream
+git diff HEAD:python_style.md upstream/main:claude/python_style.md
 ```
 
 ### 4. Selective Application
@@ -247,7 +247,7 @@ Ensure your team understands which standards apply:
 
 ## Development Standards
 
-This project follows the [mwtmurphy/playbook](https://github.com/mwtmurphy/playbook) standards:
+This project follows the [mwtmurphy/claude-playbook](https://github.com/mwtmurphy/claude-playbook) standards:
 
 - Python Style: [Link]
 - Testing: [Link]
@@ -269,8 +269,8 @@ There are three main approaches to referencing standards, each with different tr
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/testing_standards.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/testing_standards.md"
   ]
 }
 ```
@@ -296,8 +296,8 @@ There are three main approaches to referencing standards, each with different tr
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/testing_standards.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/testing_standards.md"
   ]
 }
 ```
@@ -331,13 +331,13 @@ git diff v1.0.0..v1.1.0 claude/python_style.md
 
 ```bash
 # Clone playbook
-git clone https://github.com/mwtmurphy/playbook.git ~/playbook
+git clone https://github.com/mwtmurphy/claude-playbook.git ~/claude-playbook
 
 # Reference in settings.json
 {
   "references": [
-    "/Users/username/playbook/claude/python_style.md",
-    "/Users/username/playbook/claude/testing_standards.md"
+    "/Users/username/claude-playbook/claude/python_style.md",
+    "/Users/username/claude-playbook/claude/testing_standards.md"
   ]
 }
 ```
@@ -364,9 +364,9 @@ git clone https://github.com/mwtmurphy/playbook.git ~/playbook
 {
   "references": [
     // Core standards - URL with version pinning
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/sql_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/testing_standards.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/sql_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/testing_standards.md",
 
     // Project-specific - local files
     "./claude/api_specifications.md",
@@ -400,7 +400,7 @@ git clone https://github.com/mwtmurphy/playbook.git ~/playbook
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.2.0/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.2.0/claude/python_style.md",
     "./claude/api_specifications.md"
   ]
 }
@@ -415,7 +415,7 @@ git clone https://github.com/mwtmurphy/playbook.git ~/playbook
 ```json
 {
   "references": [
-    "/Users/alice/dev/playbook/claude/python_style.md"
+    "/Users/alice/dev/claude-playbook/claude/python_style.md"
   ]
 }
 ```
@@ -437,7 +437,7 @@ If you're currently using local clones, here's how to migrate:
 ```json
 {
   "references": [
-    "/Users/username/playbook/claude/python_style.md"
+    "/Users/username/claude-playbook/claude/python_style.md"
   ]
 }
 ```
@@ -445,14 +445,14 @@ If you're currently using local clones, here's how to migrate:
 **Step 1: Find latest playbook version**
 ```bash
 # Check latest tag
-git ls-remote --tags https://github.com/mwtmurphy/playbook.git
+git ls-remote --tags https://github.com/mwtmurphy/claude-playbook.git
 ```
 
 **Step 2: Update settings.json**
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.0.0/claude/python_style.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.0.0/claude/python_style.md"
   ]
 }
 ```
@@ -473,7 +473,7 @@ git push
 **Step 5: Clean up local clone (optional)**
 ```bash
 # No longer needed unless contributing to playbook
-rm -rf ~/playbook
+rm -rf ~/claude-playbook
 ```
 
 ### Version Update Workflow
@@ -492,7 +492,7 @@ git diff v1.0.0..v1.1.0 claude/python_style.md
 // .claude/settings.local.json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.1.0/claude/python_style.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.1.0/claude/python_style.md"
   ]
 }
 ```
@@ -507,7 +507,7 @@ git diff v1.0.0..v1.1.0 claude/python_style.md
 // claude/settings.json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/v1.1.0/claude/python_style.md"  // Updated
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.1.0/claude/python_style.md"  // Updated
   ]
 }
 ```
@@ -521,7 +521,7 @@ Changes in this version:
 - Added new error handling patterns
 - Fixed British English inconsistencies
 
-See full changelog: https://github.com/mwtmurphy/playbook/releases/tag/v1.1.0
+See full changelog: https://github.com/mwtmurphy/claude-playbook/releases/tag/v1.1.0
 ```
 
 ## Troubleshooting
@@ -552,7 +552,7 @@ See full changelog: https://github.com/mwtmurphy/playbook/releases/tag/v1.1.0
 **Solutions**:
 1. Use specific commit URLs instead of `main`:
    ```
-   https://raw.githubusercontent.com/mwtmurphy/playbook/<commit-sha>/claude/python_style.md
+   https://raw.githubusercontent.com/mwtmurphy/claude-playbook/<commit-sha>/claude/python_style.md
    ```
 2. Copy standards locally and version control them
 3. Update gradually when ready
@@ -610,7 +610,7 @@ jobs:
       - name: Check Python Style
         run: |
           # Download standards
-          curl -O https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md
+          curl -O https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md
           # Run Claude Code to review PR against standards
           claude-code review --standards python_style.md
 ```
@@ -622,7 +622,7 @@ Reference standards from multiple playbooks:
 ```json
 {
   "references": [
-    "https://raw.githubusercontent.com/mwtmurphy/playbook/main/claude/python_style.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md",
     "https://raw.githubusercontent.com/another-org/js-playbook/main/javascript_style.md"
   ]
 }
@@ -630,11 +630,11 @@ Reference standards from multiple playbooks:
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/mwtmurphy/playbook/issues)
+- **Issues**: [GitHub Issues](https://github.com/mwtmurphy/claude-playbook/issues)
 - **Documentation**: See `claude/reference_guide.md` for creating standards
 - **Updates**: Watch the repository for changes
 
 ---
 
 **Last Updated**: 2025-10-30
-**Repository**: [mwtmurphy/playbook](https://github.com/mwtmurphy/playbook)
+**Repository**: [mwtmurphy/claude-playbook](https://github.com/mwtmurphy/claude-playbook)
