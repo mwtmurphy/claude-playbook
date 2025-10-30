@@ -20,7 +20,10 @@ Good error handling makes applications robust, debuggable, and user-friendly. Er
 def get_user(user_id: int) -> User:
     """Get user by ID."""
     try:
-        result = database.query(f"SELECT * FROM users WHERE id = {user_id}")
+        result = database.query(
+            "SELECT * FROM users WHERE id = :user_id",
+            params={"user_id": user_id}
+        )
         if not result:
             raise UserNotFoundError(f"User {user_id} not found")
         return User(**result)
@@ -36,7 +39,10 @@ def get_user(user_id: int) -> User:
 def get_user(user_id: int) -> User:
     """Get user by ID."""
     try:
-        result = database.query(f"SELECT * FROM users WHERE id = {user_id}")
+        result = database.query(
+            "SELECT * FROM users WHERE id = :user_id",
+            params={"user_id": user_id}
+        )
         return User(**result)
     except Exception as e:  # Too broad!
         print(f"Error: {e}")

@@ -1,8 +1,7 @@
 # Streamlit Development Standards
 
-**Version**: 2.0
-**Last Updated**: 2025-10-18
-**Applies To**: All Streamlit projects in this workspace
+**Status**: Strong preference - deviations require justification and approval
+**Scope**: Streamlit application development for Python projects
 
 ## Overview
 

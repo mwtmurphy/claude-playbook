@@ -35,10 +35,10 @@ Consistent environment setup ensures all developers work with the same tools and
    - Start projects with modern, well-supported dependencies
    - Check package compatibility before committing to Python version
 
-**Example decision process** (as of 2025):
+**Example decision process** (as of October 2025):
 ```
-Python 3.13: Released Oct 2024 → Use after Apr 2025
-Python 3.12: Released Oct 2023 → ✓ Mature, excellent choice
+Python 3.13: Released Oct 2024 → ✓ Mature, excellent choice
+Python 3.12: Released Oct 2023 → ✓ Very mature, stable choice
 Python 3.11: Released Oct 2022 → ✓ Very mature, stable choice
 Python 3.10: Released Oct 2021 → Still supported, but prefer newer
 ```
@@ -307,12 +307,12 @@ poetry env remove python3.12
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/psf/black
-    rev: 23.12.0
+    rev: 24.10.0
     hooks:
       - id: black
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.9
+    rev: v0.7.0
     hooks:
       - id: ruff
         args: [--fix]

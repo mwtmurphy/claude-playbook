@@ -1,13 +1,10 @@
 # Development Standards Playbook
 
-A centralized repository of technical standards and best practices for Python and SQL development, designed to be referenced by Claude Code and consumed by human developers.
+A centralised repository of technical standards and best practices for Python and SQL development, designed to be referenced by Claude Code for consistent implementation across projects.
 
 ## Purpose
 
-This repository serves two primary audiences:
-
-1. **Claude Code Integration**: Standards files can be remotely referenced in Claude Code settings across multiple projects, ensuring consistent implementation of technical practices
-2. **Human Documentation**: Curated guides and reference documentation available through the [GitHub Wiki](https://github.com/mwtmurphy/playbook/wiki) for easy reading and learning
+This repository serves as a reference for Claude Code integration. Standards files can be remotely referenced in Claude Code settings across multiple projects, ensuring consistent implementation of technical practices.
 
 ## Quick Reference
 
@@ -46,20 +43,9 @@ For detailed integration instructions and examples, see [USAGE.md](USAGE.md).
 ### Benefits
 
 - **Consistency**: All projects reference the same source of truth
-- **Centralized Updates**: Update standards once, apply everywhere
+- **Centralised Updates**: Update standards once, apply everywhere
 - **Version Control**: Track changes and evolution of standards over time
 - **Selective Application**: Choose which standards to reference per project
-
-## For Human Readers
-
-Visit the [GitHub Wiki](https://github.com/mwtmurphy/playbook/wiki) for:
-- Human-friendly guides and tutorials
-- Quick start checklists
-- Practical examples and use cases
-- Best practices summaries
-- FAQs and troubleshooting tips
-
-The Wiki provides curated, accessible content while the `claude/` directory contains detailed technical specifications optimized for Claude Code consumption.
 
 ## Repository Structure
 
@@ -67,7 +53,6 @@ The Wiki provides curated, accessible content while the `claude/` directory cont
 playbook/
 ├── README.md                    # This file - project overview
 ├── USAGE.md                     # Detailed integration guide
-├── wiki/                        # GitHub Wiki documentation
 └── claude/                      # Standards reference files
     ├── README.md                # Standards directory guide
     ├── python_style.md          # Python coding standards
@@ -119,6 +104,6 @@ These standards are provided as reference guidelines. Use and adapt as needed fo
 
 ---
 
-**Last Updated**: 2025-10-29
+**Last Updated**: 2025-10-30
 **Maintained By**: mwtmurphy
 **Status**: Active development
