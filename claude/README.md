@@ -75,14 +75,21 @@ Individual projects may have their own `claude/` directories containing:
 | `sql_style.md` | SQL formatting standards, naming conventions, query layout |
 | `architecture_patterns.md` | Framework-agnostic design principles, modularity, file organization |
 | `testing_standards.md` | pytest best practices, coverage targets, test patterns |
-| `documentation_standards.md` | Docstring requirements, README specs, inline comments |
+| `documentation_standards.md` | Docstring requirements, README specs, inline comments, British English |
+| `documentation_for_claude.md` | Writing documentation optimised for AI consumption |
+| `documentation_for_employees.md` | Writing documentation optimised for human reading |
 | `git_workflow.md` | Conventional Commits, branch naming, PR guidelines |
 | `claude_workflow.md` | Claude Code planning workflow, plan documentation, task tracking |
 | `error_handling.md` | Exception patterns, logging standards, graceful degradation |
 | `database_standards.md` | SQL file organization, query optimization, migration conventions |
 | `performance_considerations.md` | Algorithm complexity, profiling, caching, optimization approach |
 | `environment_setup.md` | pyenv and poetry setup, Python version selection, dependency management |
+| `streamlit_standards.md` | Streamlit-specific patterns, state management, component organization |
+| `data_visualization_standards.md` | Plotly color palettes, accessibility, chart guidelines, date formatting |
+| `interactive_visualization_testing.md` | Testing standards for interactive visualizations |
+| `user_journey_diagrams.md` | Customer journey mapping standards and Mermaid patterns |
 | `project_setup_prompt.md` | **Reusable prompt** for creating project-level reference files |
+| `reference_guide.md` | Best practices for building and organising Claude Code reference documentation |
 
 ## Update Process
 
@@ -129,7 +136,7 @@ If you need to:
 
 ---
 
-**Last Updated**: 2025-10-29
+**Last Updated**: 2025-10-31
 **Repository**: [mwtmurphy/claude-playbook](https://github.com/mwtmurphy/claude-playbook)
 **Scope**: Python and SQL projects using pyenv and poetry
 **Status**: Active - Strong preferences with justified deviations allowed
