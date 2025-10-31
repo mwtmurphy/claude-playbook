@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Visualization Title]</title>
+
+    <!-- D3.js from CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f7fa;
+            color: #2d3748;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a202c;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        /* Visualization Container */
+        .visualization-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: auto;
+            position: relative;
+        }
+
+        #visualization {
+            min-height: 600px;
+            position: relative;
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            color: #718096;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e2e8f0;
+            border-top-color: #4299e1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Error State */
+        .error-message {
+            padding: 30px;
+            text-align: center;
+            color: #c53030;
+        }
+
+        .error-message h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .error-message p {
+            color: #718096;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .error-message code {
+            background: #f7fafc;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #2d3748;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--
+        D3.js VISUALIZATION TEMPLATE
+
+        Purpose: [Brief description of what this visualization shows]
+        Scope: [What data/domain this covers]
+        Last Updated: [Date]
+
+        BROWSER COMPATIBILITY:
+        - Chrome: ✓ Tested
+        - Firefox: ✓ Tested
+        - Safari: ✓ Tested
+        - Opens directly with file:// protocol - no server required
+
+        DATA SOURCE:
+        - Source of truth: [path to external JSON file, if applicable]
+        - Data embedded below to avoid CORS issues
+
+        TO UPDATE:
+        1. Edit [external JSON file path]
+        2. Copy entire JSON content
+        3. Paste into visualizationData variable below (line ~XX)
+        4. Save this HTML file
+        5. Refresh in browser to verify changes
+
+        COMMON PITFALL: Tree Layout Node Overlap
+
+        If using d3.tree() with .nodeSize() and all nodes appear bunched in top-left corner:
+        - MUST initialize root.x0 and root.y0 before first update()
+        - Required pattern (see line ~295):
+          root.x0 = height / 2;  // For horizontal: center vertically
+          root.y0 = 0;            // For horizontal: start at left
+        - Without this, all nodes default to (0,0) causing overlap
+        - Verify in console: Should see "Root initialized at: X Y"
+
+        TESTING CHECKLIST:
+        Before committing, verify:
+        - [ ] Works in Chrome with file:// protocol (open directly)
+        - [ ] Works in Firefox
+        - [ ] Works in Safari
+        - [ ] No console errors in any browser
+        - [ ] Nodes properly distributed (not overlapping in corner)
+        - [ ] All interactive features work
+        - [ ] Error handling tested (intentionally break data)
+        - [ ] Responsive design tested (desktop, tablet, mobile)
+        - [ ] Loading state appears and disappears correctly
+        - [ ] Console shows initialization logs with non-zero coordinates
+        - [ ] Visual layout correct on first render (not just after animation)
+
+        KNOWN ISSUES:
+        - None
+
+        FUTURE ENHANCEMENTS:
+        - [List any planned improvements]
+    -->
+
+    <div class="container">
+        <header>
+            <h1>[Your Visualization Title]</h1>
+            <p class="subtitle">[Brief description of the visualization]</p>
+        </header>
+
+        <div class="visualization-container">
+            <div id="visualization">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading visualization...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /*
+         * DATA SOURCE
+         * -----------
+         * Data embedded to avoid CORS issues when opening HTML directly in browsers.
+         *
+         * SOURCE OF TRUTH: [path/to/your/data.json]
+         *
+         * TO UPDATE THIS VISUALIZATION:
+         * 1. Edit [path/to/your/data.json] with your changes
+         * 2. Copy the entire JSON content from that file
+         * 3. Paste it below, replacing the visualizationData object
+         * 4. Save this HTML file
+         * 5. Refresh in browser to see changes
+         */
+        const visualizationData = {
+            // PASTE YOUR JSON DATA HERE
+            // Example structure:
+            "name": "Root Node",
+            "value": 100,
+            "children": [
+                {
+                    "name": "Child 1",
+                    "value": 50
+                },
+                {
+                    "name": "Child 2",
+                    "value": 30
+                }
+            ]
+        };
+
+        /*
+         * ERROR HANDLING
+         * --------------
+         */
+        function displayError(error) {
+            const visualization = document.getElementById('visualization');
+            visualization.innerHTML = `
+                <div class="error-message">
+                    <h3>Unable to Load Visualization</h3>
+                    <p>There was an error initializing the visualization.</p>
+                    <p><strong>Error:</strong> <code>${error.message || 'Unknown error'}</code></p>
+                    <p>Please check the browser console (F12 → Console) for more details.</p>
+                </div>
+            `;
+            console.error('Visualization initialization error:', error);
+        }
+
+        function validateData(data) {
+            if (!data) {
+                throw new Error('Data is null or undefined');
+            }
+            // Add your specific validation logic here
+            // Example: Check for required properties
+            if (!data.name) {
+                throw new Error('Data missing required property: name');
+            }
+            return true;
+        }
+
+        /*
+         * VISUALIZATION LOGIC
+         * -------------------
+         */
+        function initializeVisualization(data) {
+            try {
+                // Validate data structure
+                validateData(data);
+
+                // Clear loading indicator
+                document.getElementById('visualization').innerHTML = '';
+
+                // Set up dimensions
+                const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+                const width = 800 - margin.left - margin.right;
+                const height = 600 - margin.top - margin.bottom;
+
+                // Create SVG
+                const svg = d3.select('#visualization')
+                    .append('svg')
+                    .attr('width', width + margin.left + margin.right)
+                    .attr('height', height + margin.top + margin.bottom)
+                    .attr('aria-label', '[Description of visualization for screen readers]')
+                    .attr('role', 'img');
+
+                // Add title and description for accessibility
+                svg.append('title')
+                    .text('[Title for screen readers]');
+
+                svg.append('desc')
+                    .text('[Detailed description of visualization for screen readers]');
+
+                const g = svg.append('g')
+                    .attr('transform', `translate(${margin.left},${margin.top})`);
+
+                // ============================================
+                // ADD YOUR D3.JS VISUALIZATION CODE HERE
+                // ============================================
+
+                // IMPORTANT: For tree layouts using .nodeSize()
+                // MUST initialize root position to prevent node overlap
+                // Uncomment and adapt if using d3.tree() with .nodeSize():
+                /*
+                const root = d3.hierarchy(data);
+
+                // CRITICAL: Initialize root coordinates before first render
+                root.x0 = height / 2;  // For horizontal: center vertically
+                root.y0 = 0;            // For horizontal: start at left edge
+                // For vertical layout use: root.x0 = 0; root.y0 = width / 2;
+
+                console.log('Root initialized at:', root.x0, root.y0);
+
+                const tree = d3.tree().nodeSize([dx, dy]);
+                // ... rest of tree setup
+                */
+
+                // Example: Simple bar chart
+                // Replace this with your actual visualization code
+
+                const exampleData = data.children || [];
+
+                const x = d3.scaleBand()
+                    .domain(exampleData.map(d => d.name))
+                    .range([0, width])
+                    .padding(0.1);
+
+                const y = d3.scaleLinear()
+                    .domain([0, d3.max(exampleData, d => d.value)])
+                    .nice()
+                    .range([height, 0]);
+
+                g.selectAll('.bar')
+                    .data(exampleData)
+                    .enter().append('rect')
+                    .attr('class', 'bar')
+                    .attr('x', d => x(d.name))
+                    .attr('y', d => y(d.value))
+                    .attr('width', x.bandwidth())
+                    .attr('height', d => height - y(d.value))
+                    .attr('fill', '#4299e1');
+
+                // Add axes
+                g.append('g')
+                    .attr('transform', `translate(0,${height})`)
+                    .call(d3.axisBottom(x));
+
+                g.append('g')
+                    .call(d3.axisLeft(y));
+
+                // ============================================
+                // END VISUALIZATION CODE
+                // ============================================
+
+                console.log('Visualization initialized successfully');
+
+            } catch (error) {
+                displayError(error);
+            }
+        }
+
+        /*
+         * INITIALIZATION
+         * --------------
+         * Initialize visualization when page loads
+         */
+        try {
+            initializeVisualization(visualizationData);
+        } catch (error) {
+            displayError(error);
+        }
+    </script>
+</body>
+</html>
