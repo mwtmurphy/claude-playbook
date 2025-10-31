@@ -563,7 +563,7 @@ All responses use this envelope:
 
 ---
 
-**Last Updated**: 2025-10-30
+**Last Updated**: 2025-10-31
 **Status**: Project-specific extension
 ```
 
@@ -651,5 +651,5 @@ Consolidate when concerns inform each other heavily:
 
 ---
 
-**Last Updated**: 2025-10-30
+**Last Updated**: 2025-10-31
 **Status**: Meta-guidance for maintainers

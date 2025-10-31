@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Exception handling and error management for Python and SQL
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -648,11 +651,7 @@ class CircuitBreaker:
 
 ## Related Standards
 
-- See `python_style.md` for exception formatting
-- See `documentation_standards.md` for documenting exceptions
-- See `architecture_patterns.md` for error handling across layers
-
----
-
-**Last Updated**: 2025-10-11
-**Status**: Strong preference - deviations require justification
+- See `python_style.md` for exception class naming conventions and formatting
+- See `architecture_patterns.md` for error handling across architectural layers
+- See `documentation_standards.md` for documenting exception classes and error behavior
+- See `logging_standards.md` for structured logging patterns and log levels

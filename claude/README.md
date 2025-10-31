@@ -88,6 +88,9 @@ Individual projects may have their own `claude/` directories containing:
 | `data_visualization_standards.md` | Plotly color palettes, accessibility, chart guidelines, date formatting |
 | `interactive_visualization_testing.md` | Testing standards for interactive visualizations |
 | `user_journey_diagrams.md` | Customer journey mapping standards and Mermaid patterns |
+| `logging_standards.md` | Logging levels, structured logging, log formatting, and performance |
+| `security_standards.md` | Authentication, authorization, secrets management, input validation |
+| `api_design_standards.md` | REST API design, versioning, error responses, HTTP best practices |
 | `project_setup_prompt.md` | **Reusable prompt** for creating project-level reference files |
 | `reference_guide.md` | Best practices for building and organising Claude Code reference documentation |
 

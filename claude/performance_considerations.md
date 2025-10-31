@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Performance best practices for Python and SQL
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -602,11 +605,7 @@ Common optimization targets:
 
 ## Related Standards
 
-- See `database_standards.md` for SQL optimization
-- See `architecture_patterns.md` for efficient design
-- See `testing_standards.md` for performance testing
-
----
-
-**Last Updated**: 2025-10-11
-**Status**: Strong preference - deviations require justification
+- See `database_standards.md` for SQL query optimization and indexing
+- See `architecture_patterns.md` for efficient architectural design and caching
+- See `python_style.md` for performant Python code patterns
+- See `testing_standards.md` for performance testing and benchmarking

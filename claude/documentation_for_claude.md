@@ -2,7 +2,7 @@
 
 **Status**: Strong preference with justified deviations allowed
 **Scope**: Writing documentation optimised for Claude and AI consumption
-**Last Updated**: 2025-10-21
+**Last Updated**: 2025-10-31
 
 ---
 
@@ -456,7 +456,7 @@ Clearly define what the document covers:
 Include last updated date:
 
 ```markdown
-**Last Updated**: 2025-10-21
+**Last Updated**: 2025-10-31
 ```
 
 For significant changes, consider changelog section:
@@ -481,7 +481,7 @@ For significant changes, consider changelog section:
 
 **Status**: Reference
 **Scope**: SaaS platform user segments (Enterprise and SMB)
-**Last Updated**: 2025-10-21
+**Last Updated**: 2025-10-31
 
 ---
 
@@ -550,7 +550,7 @@ flowchart LR
 
 **Status**: Guide
 **Scope**: OAuth 2.0 authentication flow for API access
-**Last Updated**: 2025-10-21
+**Last Updated**: 2025-10-31
 
 ---
 
@@ -746,6 +746,6 @@ Ask Claude to:
 
 ---
 
-**Last Updated**: 2025-10-21
+**Last Updated**: 2025-10-31
 **Maintained By**: Mitchell Murphy
 **Status**: Strong preference with justified deviations allowed

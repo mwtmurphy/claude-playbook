@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Development environment configuration for Python projects
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -643,5 +646,5 @@ poetry self update
 
 ---
 
-**Last Updated**: 2025-10-19
+**Last Updated**: 2025-10-31
 **Status**: Strong preference - deviations require justification

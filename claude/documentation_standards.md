@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Documentation requirements for Python code and projects
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -512,5 +515,5 @@ For every project:
 
 ---
 
-**Last Updated**: 2025-10-11
+**Last Updated**: 2025-10-31
 **Status**: Strong preference - deviations require justification

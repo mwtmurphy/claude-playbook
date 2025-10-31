@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Claude Code-specific workflow and planning practices
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -355,5 +358,5 @@ Periodically inform user of progress:
 
 ---
 
-**Last Updated**: 2025-10-19
+**Last Updated**: 2025-10-31
 **Status**: Strong preference - deviations require justification

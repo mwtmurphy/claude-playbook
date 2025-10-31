@@ -2,7 +2,7 @@
 
 **Status**: Technical Standard
 **Scope**: Workspace-wide guidance for user journey and flow diagrams
-**Last Updated**: 2025-10-21
+**Last Updated**: 2025-10-31
 
 ---
 
@@ -1038,6 +1038,6 @@ See implementation in `formations-wiki/docs/customer-journeys/data/incorporation
 
 ---
 
-**Last Updated**: 2025-10-21
+**Last Updated**: 2025-10-31
 **Maintained By**: Mitchell Murphy
 **Status**: Active

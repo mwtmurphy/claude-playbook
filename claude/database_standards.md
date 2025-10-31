@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: SQL and database conventions for all projects
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -671,12 +674,8 @@ def create_order_with_items(order_data: dict, items: list[dict]) -> int:
 
 ## Related Standards
 
-- See `sql_style.md` for SQL formatting
-- See `architecture_patterns.md` for repository pattern
-- See `error_handling.md` for database error handling
-- See `performance_considerations.md` for query optimization
-
----
-
-**Last Updated**: 2025-10-11
-**Status**: Strong preference - deviations require justification
+- See `sql_style.md` for SQL formatting conventions and CTE patterns
+- See `architecture_patterns.md` for repository pattern and data layer design
+- See `error_handling.md` for database error handling and transaction rollback
+- See `testing_standards.md` for SQL query testing patterns
+- See `performance_considerations.md` for query optimization and indexing strategies

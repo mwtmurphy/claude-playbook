@@ -2,7 +2,7 @@
 
 **Status**: Strong preference with justified deviations allowed
 **Scope**: Writing documentation optimised for human reading
-**Last Updated**: 2025-10-21
+**Last Updated**: 2025-10-31
 
 ---
 
@@ -693,6 +693,6 @@ If possible, ask someone unfamiliar with the topic to:
 
 ---
 
-**Last Updated**: 2025-10-21
+**Last Updated**: 2025-10-31
 **Maintained By**: Mitchell Murphy
 **Status**: Strong preference with justified deviations allowed
