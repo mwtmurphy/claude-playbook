@@ -9,7 +9,7 @@
 ## Prompt to Copy
 
 ```
-I have centralized development standards at https://github.com/mwtmurphy/claude-playbook/tree/main/claude that define:
+I have centralized development standards at https://github.com/mwtmurphy/claude-playbook that define:
 - Python style (PEP 8, type hints, formatting)
 - SQL style (BigQuery dialect, CTE patterns)
 - Architecture patterns (framework-agnostic)
@@ -95,4 +95,4 @@ For a data pipeline, you might create:
 
 ---
 
-**Last Updated**: 2025-10-12
+**Last Updated**: 2025-10-31
