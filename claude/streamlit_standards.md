@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Streamlit application development for Python projects
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
