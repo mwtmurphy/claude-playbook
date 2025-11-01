@@ -139,6 +139,292 @@ TARGET = '#f97316'               # Bright orange
 
 ---
 
+## 🎨 Streamlit Color Management
+
+Centralized color management pattern for Streamlit dashboards using a `chart_colors.py` module.
+
+**Why**:
+- Single source of truth for all visualization colors
+- Ensures accessibility (colorblind-safe, WCAG AA)
+- Easy to update colors project-wide
+- Self-documenting with function helpers
+
+**Related**: See [Streamlit Standards](./streamlit_standards.md) for dashboard implementation patterns.
+
+### Centralized Color Module Pattern
+
+**Pattern**: Create a `chart_colors.py` module in your project root or shared utilities directory.
+
+**File**: `chart_colors.py`
+
+```python
+"""
+Centralized Color Configuration for Data Visualizations
+
+This module defines the official color palette for all dashboards.
+Colors are designed to be:
+- Colorblind-safe (blue/orange diverging instead of red/green)
+- WCAG AA compliant for contrast (4.5:1 for text)
+- Semantically meaningful and consistent across dashboards
+
+Usage:
+    from chart_colors import PRIMARY, SECONDARY_LIGHT, get_comparison_colors
+"""
+
+# ============================================================================
+# PRIMARY & SECONDARY COLORS
+# ============================================================================
+
+PRIMARY = '#1f77b4'  # Strong blue - main data series, selected items
+PRIMARY_LIGHT = 'rgba(31, 119, 180, 0.3)'  # Faded blue (30% opacity)
+SECONDARY = '#ff7f0e'  # Orange - secondary data series
+SECONDARY_LIGHT = 'rgba(255, 127, 14, 0.3)'  # Faded orange (30% opacity)
+
+# ============================================================================
+# STATUS & DIVERGING COLORS (Colorblind-Safe)
+# ============================================================================
+
+POSITIVE = '#2ca02c'  # Green - ALWAYS pair with ⬆️ icon
+NEGATIVE = '#0066cc'  # Blue (NOT red) - ALWAYS pair with ⬇️ icon
+WARNING = '#ff7f0e'  # Orange - ALWAYS pair with ⚠️ icon
+NEUTRAL = '#7f7f7f'  # Gray
+
+# ============================================================================
+# TARGET & REFERENCE LINES
+# ============================================================================
+
+TARGET = '#d62728'  # Red - goal/target reference lines (dashed)
+BASELINE = '#ff7f0e'  # Orange - alternative reference lines
+
+# ============================================================================
+# UI & BACKGROUND COLORS
+# ============================================================================
+
+BG_TRANSPARENT = 'rgba(0,0,0,0)'  # Transparent chart backgrounds
+GRID = 'rgba(0,0,0,0.05)'  # Subtle gridlines
+TEXT = '#1f2937'  # Dark gray for chart text
+
+# ============================================================================
+# CONVENIENCE FUNCTIONS
+# ============================================================================
+
+def get_comparison_colors():
+    """
+    Get colors for current vs previous period comparisons.
+
+    Returns:
+        tuple: (current_color, previous_color)
+    """
+    return PRIMARY, SECONDARY_LIGHT
+
+
+def get_status_colors():
+    """
+    Get colors for positive/negative status indicators.
+
+    Note: Always pair these colors with icons (⬆️⬇️⚠️➡️)
+
+    Returns:
+        dict: Dictionary with 'positive', 'negative', 'warning', 'neutral' keys
+    """
+    return {
+        'positive': POSITIVE,
+        'negative': NEGATIVE,
+        'warning': WARNING,
+        'neutral': NEUTRAL
+    }
+
+
+def get_target_line_style():
+    """Get Plotly line style dict for target/reference lines."""
+    return dict(color=TARGET, width=2, dash='dash')
+
+
+def get_standard_layout_config():
+    """Get standard Plotly layout configuration."""
+    return {
+        'plot_bgcolor': BG_TRANSPARENT,
+        'paper_bgcolor': BG_TRANSPARENT,
+        'font': {'color': TEXT},
+        'hovermode': 'x unified',
+        'showlegend': True,
+        'legend': {
+            'orientation': 'h',
+            'yanchor': 'bottom',
+            'y': 1.02,
+            'xanchor': 'right',
+            'x': 1
+        }
+    }
+
+
+def get_standard_axis_config():
+    """Get standard Plotly axis configuration."""
+    return {
+        'showgrid': True,
+        'gridcolor': GRID
+    }
+```
+
+### Usage in Streamlit Dashboards
+
+#### Basic Import Pattern
+
+```python
+import streamlit as st
+import plotly.graph_objects as go
+from chart_colors import (
+    PRIMARY, SECONDARY_LIGHT, TARGET,
+    get_comparison_colors,
+    get_status_colors,
+    get_standard_layout_config
+)
+```
+
+#### Example: Comparison Bar Chart
+
+```python
+def create_comparison_chart(current_values, previous_values, labels):
+    """Create bar chart comparing current vs previous period."""
+    current_color, previous_color = get_comparison_colors()
+
+    fig = go.Figure()
+
+    # Previous period (faded)
+    fig.add_trace(go.Bar(
+        x=labels,
+        y=previous_values,
+        name='Previous Period',
+        marker_color=previous_color,
+        text=[f'{v:.1f}' for v in previous_values],
+        textposition='outside'
+    ))
+
+    # Current period (solid)
+    fig.add_trace(go.Bar(
+        x=labels,
+        y=current_values,
+        name='Current Period',
+        marker_color=current_color,
+        text=[f'{v:.1f}' for v in current_values],
+        textposition='outside'
+    ))
+
+    # Apply standard layout
+    fig.update_layout(**get_standard_layout_config())
+    fig.update_layout(title='Current vs Previous Period', barmode='group')
+
+    return fig
+
+st.plotly_chart(create_comparison_chart(
+    current_values=[100, 150, 200],
+    previous_values=[90, 140, 180],
+    labels=['A', 'B', 'C']
+), use_container_width=True)
+```
+
+#### Example: Status Indicators with Icons
+
+```python
+def show_metric_changes(current, previous):
+    """Display metric with colorblind-safe status indicator."""
+    status_colors = get_status_colors()
+
+    change_pct = ((current - previous) / previous) * 100
+
+    if change_pct > 0:
+        color = status_colors['positive']
+        icon = '⬆️'
+        label = 'increase'
+    elif change_pct < 0:
+        color = status_colors['negative']
+        icon = '⬇️'
+        label = 'decrease'
+    else:
+        color = status_colors['neutral']
+        icon = '➡️'
+        label = 'no change'
+
+    st.markdown(
+        f"<span style='color: {color}; font-size: 1.2em; font-weight: bold;'>"
+        f"{icon} {change_pct:+.1f}% {label}"
+        f"</span>",
+        unsafe_allow_html=True
+    )
+```
+
+### Accessibility Guidelines
+
+#### 1. Colorblind-Safe Status Indicators
+
+**CRITICAL**: Use blue (not red) for negative indicators.
+
+```python
+# ✅ CORRECT: Blue for negative (colorblind-safe)
+NEGATIVE = '#0066cc'  # Blue
+st.markdown(f"<span style='color: {NEGATIVE}'>⬇️ -3.1%</span>")
+
+# ❌ WRONG: Red for negative (confuses with positive green for 8% of males)
+NEGATIVE = '#ff0000'  # Red
+```
+
+**Why**: Red-green colorblindness affects ~8% of males. Blue/orange diverging palettes are universally distinguishable.
+
+#### 2. Redundant Encoding with Icons
+
+**Always pair status colors with directional icons**:
+
+```python
+status_colors = get_status_colors()
+
+# Positive change
+st.markdown(f"⬆️ <span style='color: {status_colors['positive']}'>+5.2%</span>")
+
+# Negative change
+st.markdown(f"⬇️ <span style='color: {status_colors['negative']}'>-3.1%</span>")
+
+# Warning
+st.markdown(f"⚠️ <span style='color: {status_colors['warning']}'>Approaching limit</span>")
+
+# Neutral
+st.markdown(f"➡️ <span style='color: {status_colors['neutral']}'>No change</span>")
+```
+
+**Benefits**:
+- Color + icon provides redundant information
+- Screen readers can describe icons
+- Works in grayscale printing
+
+#### 3. WCAG AA Contrast Compliance
+
+**Text colors must meet 4.5:1 contrast ratio on backgrounds**:
+
+```python
+# ✅ CORRECT: Dark gray text on white (7.6:1 contrast)
+TEXT = '#1f2937'
+
+# ❌ WRONG: Light gray text on white (2.1:1 contrast - fails WCAG AA)
+TEXT = '#cccccc'
+```
+
+**Test contrast ratios**: https://webaim.org/resources/contrastchecker/
+
+### Testing Color Accessibility
+
+**Checklist**:
+- [ ] Test dashboard with [Coblis Color Blindness Simulator](https://www.color-blindness.com/coblis-color-blindness-simulator/)
+- [ ] Verify all status indicators have icons (⬆️⬇️⚠️)
+- [ ] Check text contrast ratios with WebAIM Contrast Checker
+- [ ] Print dashboard in grayscale - can you distinguish categories?
+- [ ] Use browser DevTools to simulate vision deficiencies
+
+**Browser DevTools (Chrome/Edge)**:
+1. Open DevTools → Rendering tab
+2. Enable "Emulate vision deficiencies"
+3. Test: Protanopia, Deuteranopia, Tritanopia
+
+---
+
 ## 📊 Chart-Specific Guidelines
 
 ### Bar Charts
