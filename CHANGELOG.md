@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- **New Standards Files**:
+  - `metricflow_dbt_standards.md` - Comprehensive dbt-core with MetricFlow semantic layer patterns covering semantic model design, metric development, query optimization, and Python integration
+
+- **Streamlit Standards Enhancements**:
+  - MetricFlow Integration section - MetricFlow-first data loading patterns for Streamlit dashboards
+  - BigQuery Integration section - Best practices for BigQuery client setup, query parameterization, and cost optimization
+  - Updated Table of Contents to include new sections
+
+- **Data Visualization Standards Enhancements**:
+  - Streamlit Color Management section - Centralized `chart_colors.py` module pattern with accessibility guidelines, usage examples, and WCAG AA compliance testing
+
+### Changed
+
+- **README.md**: Added MetricFlow + dbt Standards to Quick Reference table
+- **Cross-References**: Streamlit Standards now references MetricFlow + dbt Standards; Data Visualization Standards now references Streamlit Standards for implementation patterns
+
 ## [2.0.0] - 2025-10-31
 
 ### Added

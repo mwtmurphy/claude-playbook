@@ -24,6 +24,7 @@ This repository serves as a reference for Claude Code integration. Standards fil
 | **Performance Considerations** | Algorithm complexity, profiling, caching, optimization approach | [performance_considerations.md](claude/performance_considerations.md) |
 | **Environment Setup** | pyenv and poetry setup, Python version selection, dependency management | [environment_setup.md](claude/environment_setup.md) |
 | **Streamlit Standards** | Streamlit-specific patterns, state management, component organization | [streamlit_standards.md](claude/streamlit_standards.md) |
+| **MetricFlow + dbt Standards** | dbt-core with MetricFlow semantic layer patterns, metric development | [metricflow_dbt_standards.md](claude/metricflow_dbt_standards.md) |
 | **Data Visualization Standards** | Plotly color palettes, accessibility, chart guidelines, date formatting | [data_visualization_standards.md](claude/data_visualization_standards.md) |
 | **Interactive Visualization Testing** | Testing standards for interactive visualizations | [interactive_visualization_testing.md](claude/interactive_visualization_testing.md) |
 | **User Journey Diagrams** | Customer journey mapping standards and Mermaid patterns | [user_journey_diagrams.md](claude/user_journey_diagrams.md) |
