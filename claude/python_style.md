@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Python code formatting and naming conventions
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -344,8 +347,4 @@ indent_size = 4
 - See `documentation_standards.md` for docstring style
 - See `git_workflow.md` for commit message style
 - See `sql_style.md` for SQL formatting standards
-
----
-
-**Last Updated**: 2025-10-11
-**Status**: Strong preference - deviations require justification
+- See `testing_standards.md` for test code formatting

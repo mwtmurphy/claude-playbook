@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Version control practices for all projects
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -506,11 +509,8 @@ git log --grep="authentication"
 
 ## Related Standards
 
-- See `python_style.md` and `sql_style.md` for code formatting standards
-- See `documentation_standards.md` for commit message documentation
+- See `python_style.md` for Python code formatting enforced by pre-commit hooks
+- See `sql_style.md` for SQL formatting standards
+- See `documentation_standards.md` for commit message documentation and PR descriptions
 - See `testing_standards.md` for test requirements before commits
-
----
-
-**Last Updated**: 2025-10-11
-**Status**: Strong preference - deviations require justification
+- See `claude_workflow.md` for Claude Code specific git integration

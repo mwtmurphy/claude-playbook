@@ -14,7 +14,9 @@ This repository serves as a reference for Claude Code integration. Standards fil
 | **SQL Style** | SQL formatting standards, naming conventions, query layout | [sql_style.md](claude/sql_style.md) |
 | **Architecture Patterns** | Framework-agnostic design principles, modularity, file organization | [architecture_patterns.md](claude/architecture_patterns.md) |
 | **Testing Standards** | pytest best practices, coverage targets, test patterns | [testing_standards.md](claude/testing_standards.md) |
-| **Documentation Standards** | Docstring requirements, README specs, inline comments | [documentation_standards.md](claude/documentation_standards.md) |
+| **Documentation Standards** | Docstring requirements, README specs, inline comments, British English | [documentation_standards.md](claude/documentation_standards.md) |
+| **Documentation for Claude** | Writing documentation optimised for AI consumption | [documentation_for_claude.md](claude/documentation_for_claude.md) |
+| **Documentation for Employees** | Writing documentation optimised for human reading | [documentation_for_employees.md](claude/documentation_for_employees.md) |
 | **Git Workflow** | Conventional Commits, branch naming, PR guidelines | [git_workflow.md](claude/git_workflow.md) |
 | **Claude Workflow** | Claude Code planning workflow, plan documentation, task tracking | [claude_workflow.md](claude/claude_workflow.md) |
 | **Error Handling** | Exception patterns, logging standards, graceful degradation | [error_handling.md](claude/error_handling.md) |
@@ -22,6 +24,9 @@ This repository serves as a reference for Claude Code integration. Standards fil
 | **Performance Considerations** | Algorithm complexity, profiling, caching, optimization approach | [performance_considerations.md](claude/performance_considerations.md) |
 | **Environment Setup** | pyenv and poetry setup, Python version selection, dependency management | [environment_setup.md](claude/environment_setup.md) |
 | **Streamlit Standards** | Streamlit-specific patterns, state management, component organization | [streamlit_standards.md](claude/streamlit_standards.md) |
+| **Data Visualization Standards** | Plotly color palettes, accessibility, chart guidelines, date formatting | [data_visualization_standards.md](claude/data_visualization_standards.md) |
+| **Interactive Visualization Testing** | Testing standards for interactive visualizations | [interactive_visualization_testing.md](claude/interactive_visualization_testing.md) |
+| **User Journey Diagrams** | Customer journey mapping standards and Mermaid patterns | [user_journey_diagrams.md](claude/user_journey_diagrams.md) |
 | **Project Setup Prompt** | Reusable prompt for creating project-level reference files | [project_setup_prompt.md](claude/project_setup_prompt.md) |
 | **Reference Guide** | Best practices for building and organising Claude Code reference documentation | [reference_guide.md](claude/reference_guide.md) |
 
@@ -73,6 +78,8 @@ claude-playbook/
     ├── architecture_patterns.md # Design principles
     ├── testing_standards.md     # Testing guidelines
     ├── documentation_standards.md
+    ├── documentation_for_claude.md
+    ├── documentation_for_employees.md
     ├── git_workflow.md
     ├── claude_workflow.md
     ├── error_handling.md
@@ -80,8 +87,13 @@ claude-playbook/
     ├── performance_considerations.md
     ├── environment_setup.md
     ├── streamlit_standards.md
+    ├── data_visualization_standards.md
+    ├── interactive_visualization_testing.md
+    ├── user_journey_diagrams.md
     ├── project_setup_prompt.md
-    └── reference_guide.md       # Meta-guidance for creating standards
+    ├── reference_guide.md       # Meta-guidance for creating standards
+    └── templates/               # Reusable templates
+        └── d3_visualization_template.html
 ```
 
 ## Philosophy
@@ -118,6 +130,6 @@ These standards are provided as reference guidelines. Use and adapt as needed fo
 
 ---
 
-**Last Updated**: 2025-10-30
+**Last Updated**: 2025-10-31
 **Maintained By**: mwtmurphy
 **Status**: Active development

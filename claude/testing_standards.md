@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Testing requirements and best practices for Python and SQL
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -192,8 +195,6 @@ addopts = [
 
 - See `python_style.md` for test code formatting
 - See `documentation_standards.md` for test documentation
-
----
-
-**Last Updated**: 2025-10-11
-**Status**: Strong preference - deviations require justification
+- See `sql_style.md` for SQL query testing
+- See `streamlit_standards.md` for Streamlit app testing
+- See `interactive_visualization_testing.md` for visualization testing
