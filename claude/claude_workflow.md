@@ -354,7 +354,7 @@ Periodically inform user of progress:
 
 - See `git_workflow.md` for commit and PR practices
 - See `documentation_standards.md` for documentation requirements
-- See `testing_standards.md` for verification standards
+- See `python_testing_standards.md` for verification standards
 
 ---
 

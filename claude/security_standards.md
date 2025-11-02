@@ -613,9 +613,9 @@ jobs:
 ## Related Standards
 
 - See `python_style.md` for secure coding conventions
-- See `error_handling.md` for secure error handling (avoid leaking sensitive info)
+- See `python_error_handling.md` for secure error handling (avoid leaking sensitive info)
 - See `logging_standards.md` for secure logging (never log secrets)
-- See `environment_setup.md` for environment variable management
+- See `python_environment_setup.md` for environment variable management
 - See `api_design_standards.md` for API authentication and authorization patterns
 
 ---

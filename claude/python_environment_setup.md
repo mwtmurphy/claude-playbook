@@ -640,7 +640,7 @@ poetry self update
 ## Related Standards
 
 - See `python_style.md` for code formatting tools
-- See `testing_standards.md` for test configuration
+- See `python_testing_standards.md` for test configuration
 - See `git_workflow.md` for version control setup
 - See `documentation_standards.md` for README requirements
 

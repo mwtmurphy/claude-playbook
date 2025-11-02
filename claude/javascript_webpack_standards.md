@@ -743,7 +743,7 @@ export default defineConfig({
 ## Related Standards
 - See `typescript_style.md` for TypeScript configuration
 - See `chrome_extension_standards.md` for extension-specific patterns
-- See `javascript_testing.md` for test configuration
+- See `javascript_testing_standards.md` for test configuration
 - See `performance_considerations.md` for optimisation strategies
 
 ## References

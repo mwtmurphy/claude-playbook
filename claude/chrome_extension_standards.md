@@ -856,8 +856,8 @@ See `git_workflow.md` for semantic versioning and conventional commits.
 
 ## Related Standards
 - See `typescript_style.md` for TypeScript coding standards
-- See `javascript_testing.md` for testing patterns
-- See `webpack_standards.md` for build configuration
+- See `javascript_testing_standards.md` for testing patterns
+- See `javascript_webpack_standards.md` for build configuration
 - See `git_workflow.md` for versioning and commits
 - See `permissions_patterns.md` for permission configuration
 

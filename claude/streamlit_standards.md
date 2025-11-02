@@ -2125,6 +2125,6 @@ if str(project_root) not in sys.path:
 ## Related Standards
 
 - [Python Style Guide](./python_style.md)
-- [Testing Standards](./testing_standards.md)
+- [Testing Standards](./python_testing_standards.md)
 - [Architecture Patterns](./architecture_patterns.md)
 - [Documentation Standards](./documentation_standards.md)

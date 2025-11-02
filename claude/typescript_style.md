@@ -579,10 +579,10 @@ class ShapeFactory {
 ```
 
 ## Related Standards
-- See `javascript_testing.md` for Jest and Playwright testing patterns
+- See `javascript_testing_standards.md` for Jest and Playwright testing patterns
 - See `git_workflow.md` for commit and versioning standards
 - See `chrome_extension_standards.md` for Chrome extension specific TypeScript patterns
-- See `webpack_standards.md` for build configuration
+- See `javascript_webpack_standards.md` for build configuration
 
 ## References
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)

@@ -78,10 +78,10 @@ Individual projects may have their own `.claude/` or `claude/` directories conta
 |------|---------|
 | `python_style.md` | Python PEP 8 compliance, naming conventions, type hints, formatting |
 | `sql_style.md` | SQL formatting standards, naming conventions, query layout |
-| `testing_standards.md` | pytest best practices, coverage targets, test patterns |
-| `error_handling.md` | Exception patterns, logging standards, graceful degradation |
-| `database_standards.md` | SQL file organisation, query optimisation, migration conventions |
-| `environment_setup.md` | pyenv and poetry setup, Python version selection, dependency management |
+| `python_testing_standards.md` | pytest best practices, coverage targets, test patterns |
+| `python_error_handling.md` | Exception patterns, logging standards, graceful degradation |
+| `sql_database_standards.md` | SQL file organisation, query optimisation, migration conventions |
+| `python_environment_setup.md` | pyenv and poetry setup, Python version selection, dependency management |
 | `streamlit_standards.md` | Streamlit-specific patterns, state management, component organisation |
 | `metricflow_dbt_standards.md` | dbt-core with MetricFlow semantic layer patterns, metric development |
 | `data_visualization_standards.md` | Plotly colour palettes, accessibility, chart guidelines, date formatting |
@@ -97,8 +97,8 @@ Individual projects may have their own `.claude/` or `claude/` directories conta
 |------|---------|
 | `typescript_style.md` | ESLint, Prettier, type annotations, naming conventions, patterns |
 | `chrome_extension_standards.md` | Manifest V3, service workers, UI/UX patterns, security |
-| `javascript_testing.md` | Jest unit tests, Playwright E2E tests, mocking patterns |
-| `webpack_standards.md` | Build configuration, optimisation, bundling, asset management |
+| `javascript_testing_standards.md` | Jest unit tests, Playwright E2E tests, mocking patterns |
+| `javascript_webpack_standards.md` | Build configuration, optimisation, bundling, asset management |
 
 ### General Standards
 
@@ -130,10 +130,10 @@ These reference files are **living documents** but should be updated deliberatel
 ### For New Projects
 
 1. **Reference standards remotely**: Add relevant raw GitHub URLs to Claude Code settings
-2. **Review environment setup**: Consult `environment_setup.md` for initial project setup
+2. **Review environment setup**: Consult `python_environment_setup.md` for initial project setup
 3. **Follow architecture patterns**: Reference `architecture_patterns.md` for directory structure
 4. **Apply coding standards**: Follow `python_style.md`, `sql_style.md`, and `documentation_standards.md` from the start
-5. **Set up testing**: Implement per `testing_standards.md`
+5. **Set up testing**: Implement per `python_testing_standards.md`
 6. **Configure git workflow**: Follow `git_workflow.md`
 7. **Optional**: Use `project_setup_prompt.md` with Claude Code to create project-specific `claude/` files
 

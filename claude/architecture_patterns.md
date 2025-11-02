@@ -567,7 +567,7 @@ def load_config() -> AppConfig:
 ## Related Standards
 
 - See `python_style.md` for code formatting and naming conventions
-- See `error_handling.md` for error handling across architectural layers
-- See `testing_standards.md` for testing layered architecture and dependency injection
-- See `database_standards.md` for SQL-specific architecture and repository patterns
+- See `python_error_handling.md` for error handling across architectural layers
+- See `python_testing_standards.md` for testing layered architecture and dependency injection
+- See `sql_database_standards.md` for SQL-specific architecture and repository patterns
 - See `performance_considerations.md` for architectural performance implications

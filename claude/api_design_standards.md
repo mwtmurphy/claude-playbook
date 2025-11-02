@@ -631,7 +631,7 @@ API design checklist:
 
 - See `python_style.md` for Python code formatting
 - See `security_standards.md` for authentication, authorization, and input validation
-- See `error_handling.md` for exception handling in API endpoints
+- See `python_error_handling.md` for exception handling in API endpoints
 - See `logging_standards.md` for API request/response logging
 - See `documentation_standards.md` for API documentation requirements
 

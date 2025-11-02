@@ -510,7 +510,7 @@ For every project:
 ## Related Standards
 
 - See `python_style.md` for docstring formatting
-- See `testing_standards.md` for test documentation
+- See `python_testing_standards.md` for test documentation
 - See `git_workflow.md` for commit message documentation
 
 ---
