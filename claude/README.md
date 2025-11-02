@@ -2,7 +2,7 @@
 
 ## Overview
 
-This directory contains centralized development standards for Python and SQL projects. These files serve as reference guides for Claude Code and human developers to maintain consistency, quality, and best practices across multiple projects. Standards can be remotely referenced from this repository using raw GitHub URLs.
+This directory contains centralized development standards for Python, SQL, TypeScript, and JavaScript projects. These files serve as reference guides for Claude Code and human developers to maintain consistency, quality, and best practices across multiple projects. Standards can be remotely referenced from this repository using raw GitHub URLs.
 
 ## Purpose
 
@@ -49,17 +49,20 @@ These standards are **advisory guidelines with strong preference weight**, not r
 
 ### Centralized Standards (This Repository)
 
-- **Framework-agnostic**: Applicable to any Python or SQL project
+- **Framework-agnostic**: Applicable to Python, SQL, TypeScript, and JavaScript projects
 - **General principles**: Architecture, style, testing, documentation
-- **Tool preferences**: pyenv, poetry, pytest
-- **Universal patterns**: Error handling, performance, git workflow
+- **Tool preferences**:
+  - Python: pyenv, poetry, pytest, black, ruff, mypy
+  - JavaScript/TypeScript: npm, Jest, Playwright, ESLint, Prettier, Webpack
+- **Universal patterns**: Error handling, performance, git workflow, permissions
 - **Remotely accessible**: Can be referenced via raw GitHub URLs
 
 ### Project-Level Standards
 
-Individual projects may have their own `claude/` directories containing:
-- Framework-specific patterns (Django, FastAPI, Flask, etc.)
+Individual projects may have their own `.claude/` or `claude/` directories containing:
+- Framework-specific patterns (Django, FastAPI, Flask, React, Vue, etc.)
 - Database-specific conventions (PostgreSQL, MySQL, SQLite)
+- Chrome extension specific implementation details
 - API specifications and schemas
 - Domain-specific business rules
 - Integration requirements
@@ -69,30 +72,48 @@ Individual projects may have their own `claude/` directories containing:
 
 ## Reference Files
 
+### Python & SQL Standards
+
 | File | Purpose |
 |------|---------|
 | `python_style.md` | Python PEP 8 compliance, naming conventions, type hints, formatting |
 | `sql_style.md` | SQL formatting standards, naming conventions, query layout |
-| `architecture_patterns.md` | Framework-agnostic design principles, modularity, file organization |
-| `testing_standards.md` | pytest best practices, coverage targets, test patterns |
+| `python_testing_standards.md` | pytest best practices, coverage targets, test patterns |
+| `python_error_handling.md` | Exception patterns, logging standards, graceful degradation |
+| `sql_database_standards.md` | SQL file organisation, query optimisation, migration conventions |
+| `python_environment_setup.md` | pyenv and poetry setup, Python version selection, dependency management |
+| `streamlit_standards.md` | Streamlit-specific patterns, state management, component organisation |
+| `metricflow_dbt_standards.md` | dbt-core with MetricFlow semantic layer patterns, metric development |
+| `data_visualization_standards.md` | Plotly colour palettes, accessibility, chart guidelines, date formatting |
+| `interactive_visualization_testing.md` | Testing standards for interactive visualisations |
+| `user_journey_diagrams.md` | Customer journey mapping standards and Mermaid patterns |
+| `logging_standards.md` | Logging levels, structured logging, log formatting, and performance |
+| `security_standards.md` | Authentication, authorisation, secrets management, input validation |
+| `api_design_standards.md` | REST API design, versioning, error responses, HTTP best practices |
+
+### JavaScript & TypeScript Standards
+
+| File | Purpose |
+|------|---------|
+| `typescript_style.md` | ESLint, Prettier, type annotations, naming conventions, patterns |
+| `chrome_extension_standards.md` | Manifest V3, service workers, UI/UX patterns, security |
+| `javascript_testing_standards.md` | Jest unit tests, Playwright E2E tests, mocking patterns |
+| `javascript_webpack_standards.md` | Build configuration, optimisation, bundling, asset management |
+
+### General Standards
+
+| File | Purpose |
+|------|---------|
+| `architecture_patterns.md` | Framework-agnostic design principles, modularity, file organisation |
 | `documentation_standards.md` | Docstring requirements, README specs, inline comments, British English |
 | `documentation_for_claude.md` | Writing documentation optimised for AI consumption |
 | `documentation_for_employees.md` | Writing documentation optimised for human reading |
 | `git_workflow.md` | Conventional Commits, branch naming, PR guidelines |
+| `permissions_patterns.md` | Claude Code permission patterns for different tech stacks |
+| `performance_considerations.md` | Algorithm complexity, profiling, caching, optimisation approach |
 | `claude_workflow.md` | Claude Code planning workflow, plan documentation, task tracking |
-| `error_handling.md` | Exception patterns, logging standards, graceful degradation |
-| `database_standards.md` | SQL file organization, query optimization, migration conventions |
-| `performance_considerations.md` | Algorithm complexity, profiling, caching, optimization approach |
-| `environment_setup.md` | pyenv and poetry setup, Python version selection, dependency management |
-| `streamlit_standards.md` | Streamlit-specific patterns, state management, component organization |
-| `data_visualization_standards.md` | Plotly color palettes, accessibility, chart guidelines, date formatting |
-| `interactive_visualization_testing.md` | Testing standards for interactive visualizations |
-| `user_journey_diagrams.md` | Customer journey mapping standards and Mermaid patterns |
-| `logging_standards.md` | Logging levels, structured logging, log formatting, and performance |
-| `security_standards.md` | Authentication, authorization, secrets management, input validation |
-| `api_design_standards.md` | REST API design, versioning, error responses, HTTP best practices |
 | `project_setup_prompt.md` | **Reusable prompt** for creating project-level reference files |
-| `reference_guide.md` | Best practices for building and organising Claude Code reference documentation |
+| `reference_guide.md` | Meta-guidance for building and organising Claude Code reference documentation |
 
 ## Update Process
 
@@ -109,10 +130,10 @@ These reference files are **living documents** but should be updated deliberatel
 ### For New Projects
 
 1. **Reference standards remotely**: Add relevant raw GitHub URLs to Claude Code settings
-2. **Review environment setup**: Consult `environment_setup.md` for initial project setup
+2. **Review environment setup**: Consult `python_environment_setup.md` for initial project setup
 3. **Follow architecture patterns**: Reference `architecture_patterns.md` for directory structure
 4. **Apply coding standards**: Follow `python_style.md`, `sql_style.md`, and `documentation_standards.md` from the start
-5. **Set up testing**: Implement per `testing_standards.md`
+5. **Set up testing**: Implement per `python_testing_standards.md`
 6. **Configure git workflow**: Follow `git_workflow.md`
 7. **Optional**: Use `project_setup_prompt.md` with Claude Code to create project-specific `claude/` files
 
@@ -139,7 +160,7 @@ If you need to:
 
 ---
 
-**Last Updated**: 2025-10-31
+**Last Updated**: 2025-11-02
 **Repository**: [mwtmurphy/claude-playbook](https://github.com/mwtmurphy/claude-playbook)
-**Scope**: Python and SQL projects using pyenv and poetry
+**Scope**: Python, SQL, TypeScript, and JavaScript projects
 **Status**: Active - Strong preferences with justified deviations allowed

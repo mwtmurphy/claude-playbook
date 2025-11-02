@@ -569,10 +569,10 @@ def process_background_task(task_id: str):
 
 ## Related Standards
 
-- See `error_handling.md` for exception logging and error handling patterns
+- See `python_error_handling.md` for exception logging and error handling patterns
 - See `python_style.md` for logger naming conventions
 - See `performance_considerations.md` for logging performance optimization
-- See `testing_standards.md` for testing logging behavior
+- See `python_testing_standards.md` for testing logging behavior
 
 ---
 

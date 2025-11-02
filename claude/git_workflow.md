@@ -512,5 +512,5 @@ git log --grep="authentication"
 - See `python_style.md` for Python code formatting enforced by pre-commit hooks
 - See `sql_style.md` for SQL formatting standards
 - See `documentation_standards.md` for commit message documentation and PR descriptions
-- See `testing_standards.md` for test requirements before commits
+- See `python_testing_standards.md` for test requirements before commits
 - See `claude_workflow.md` for Claude Code specific git integration

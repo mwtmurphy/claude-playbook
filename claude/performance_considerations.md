@@ -605,7 +605,7 @@ Common optimization targets:
 
 ## Related Standards
 
-- See `database_standards.md` for SQL query optimization and indexing
+- See `sql_database_standards.md` for SQL query optimization and indexing
 - See `architecture_patterns.md` for efficient architectural design and caching
 - See `python_style.md` for performant Python code patterns
-- See `testing_standards.md` for performance testing and benchmarking
+- See `python_testing_standards.md` for performance testing and benchmarking

@@ -16,7 +16,7 @@ This guide explains best practices for creating Claude Code reference files base
 All Claude Code reference files should follow these conventions:
 
 **Naming:**
-- Use `snake_case` with descriptive names: `python_style.md`, `testing_standards.md`
+- Use `snake_case` with descriptive names: `python_style.md`, `python_testing_standards.md`
 - Make names specific to the topic, not generic: `architecture_patterns.md` not `patterns.md`
 - Use `.md` extension for markdown files
 - Keep filenames concise (2-3 words maximum)
@@ -30,7 +30,7 @@ repository/
     ├── README.md              # Directory guide
     ├── python_style.md        # Individual standards
     ├── sql_style.md
-    ├── testing_standards.md
+    ├── python_testing_standards.md
     └── ...
 ```
 
@@ -116,7 +116,7 @@ Every reference file should follow this structure:
 
 *Split:*
 - `python_style.md` and `sql_style.md` - different languages
-- `testing_standards.md` and `error_handling.md` - different concerns
+- `python_testing_standards.md` and `python_error_handling.md` - different concerns
 - `git_workflow.md` and `claude_workflow.md` - different workflows
 
 *Consolidated:*
@@ -225,7 +225,7 @@ def calc_pmt(p: float, r: float) -> float:
 ## Related Standards
 
 - See `python_style.md` for docstring formatting details
-- See `testing_standards.md` for test documentation requirements
+- See `python_testing_standards.md` for test documentation requirements
 - See `git_workflow.md` for commit message conventions
 ```
 
@@ -234,7 +234,7 @@ def calc_pmt(p: float, r: float) -> float:
 ```markdown
 ### SQL Query Organisation
 
-Keep SQL in separate files under `sql/queries/`. See `database_standards.md`
+Keep SQL in separate files under `sql/queries/`. See `sql_database_standards.md`
 for complete file organisation structure and naming conventions.
 ```
 
@@ -265,7 +265,7 @@ git clone https://github.com/mwtmurphy/claude-playbook.git ~/claude-playbook
 {
   "references": [
     "/Users/username/claude-playbook/claude/python_style.md",
-    "/Users/username/claude-playbook/claude/testing_standards.md"
+    "/Users/username/claude-playbook/claude/python_testing_standards.md"
   ]
 }
 ```
@@ -289,7 +289,7 @@ git clone https://github.com/mwtmurphy/claude-playbook.git ~/claude-playbook
 {
   "references": [
     "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/testing_standards.md"
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/main/claude/python_testing_standards.md"
   ]
 }
 ```
@@ -329,7 +329,7 @@ git clone https://github.com/mwtmurphy/claude-playbook.git ~/claude-playbook
     // Core standards - use URLs with version tags
     "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.2.0/claude/python_style.md",
     "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.2.0/claude/sql_style.md",
-    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.2.0/claude/testing_standards.md",
+    "https://raw.githubusercontent.com/mwtmurphy/claude-playbook/v1.2.0/claude/python_testing_standards.md",
 
     // Project-specific - local files
     "./claude/api_specifications.md",
@@ -558,8 +558,8 @@ All responses use this envelope:
 ## Related Standards
 
 - See [python_style.md](https://github.com/mwtmurphy/claude-playbook/blob/main/claude/python_style.md) for code formatting
-- See [error_handling.md](https://github.com/mwtmurphy/claude-playbook/blob/main/claude/error_handling.md) for exception patterns
-- See `database_standards.md` locally for schema details
+- See [python_error_handling.md](https://github.com/mwtmurphy/claude-playbook/blob/main/claude/python_error_handling.md) for exception patterns
+- See `sql_database_standards.md` locally for schema details
 
 ---
 
@@ -624,7 +624,7 @@ Split by programming language when syntax differs significantly:
 ### Pattern: Concern-Based Standards
 
 Split by technical concern when they're independently applicable:
-- `testing_standards.md`, `error_handling.md`, `performance_considerations.md`
+- `python_testing_standards.md`, `python_error_handling.md`, `performance_considerations.md`
 
 ### Pattern: Tool-Specific Standards
 

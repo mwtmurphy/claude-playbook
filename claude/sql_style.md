@@ -1008,7 +1008,7 @@ capitalisation_policy = lower
 
 ## Related Standards
 
-- See `database_standards.md` for SQL file organization and query optimization
+- See `sql_database_standards.md` for SQL file organisation and query optimization
 - See `python_style.md` for Python code that generates SQL
 - See `documentation_standards.md` for general documentation requirements
-- See `testing_standards.md` for SQL query testing patterns
+- See `python_testing_standards.md` for SQL query testing patterns

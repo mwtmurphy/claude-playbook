@@ -10,7 +10,7 @@ This document defines standards for developing data models and metrics using dbt
 
 **Related Standards**:
 - [SQL Style](./sql_style.md) - SQL style guide
-- [Database Standards](./database_standards.md) - Query patterns and schemas
+- [Database Standards](./sql_database_standards.md) - Query patterns and schemas
 - [Git Workflow](./git_workflow.md) - Commit workflow
 
 ## Core Principles
@@ -1055,6 +1055,6 @@ semantic_models:
 
 ### Workspace Standards
 - [SQL Style](./sql_style.md) - SQL style guide
-- [Database Standards](./database_standards.md) - Query patterns
+- [Database Standards](./sql_database_standards.md) - Query patterns
 - [Git Workflow](./git_workflow.md) - Commit workflow
-- [Testing Standards](./testing_standards.md) - Test patterns
+- [Testing Standards](./python_testing_standards.md) - Test patterns

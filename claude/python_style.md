@@ -190,7 +190,7 @@ def create_user(data: UserData) -> UserId:
     return data["id"]
 ```
 
-## Import Organization
+## Import Organisation
 
 ### Order and Grouping
 
@@ -347,4 +347,4 @@ indent_size = 4
 - See `documentation_standards.md` for docstring style
 - See `git_workflow.md` for commit message style
 - See `sql_style.md` for SQL formatting standards
-- See `testing_standards.md` for test code formatting
+- See `python_testing_standards.md` for test code formatting
