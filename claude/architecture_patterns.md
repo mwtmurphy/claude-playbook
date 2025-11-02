@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Framework-agnostic Python architectural principles
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -563,11 +566,8 @@ def load_config() -> AppConfig:
 
 ## Related Standards
 
-- See `database_standards.md` for SQL-specific architecture
-- See `testing_standards.md` for testing layered architecture
-- See `error_handling.md` for error handling across layers
-
----
-
-**Last Updated**: 2025-10-11
-**Status**: Strong preference - deviations require justification
+- See `python_style.md` for code formatting and naming conventions
+- See `error_handling.md` for error handling across architectural layers
+- See `testing_standards.md` for testing layered architecture and dependency injection
+- See `database_standards.md` for SQL-specific architecture and repository patterns
+- See `performance_considerations.md` for architectural performance implications

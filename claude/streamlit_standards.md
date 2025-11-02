@@ -2,6 +2,9 @@
 
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: Streamlit application development for Python projects
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -16,9 +19,11 @@ This document defines workspace-level standards for Streamlit application develo
 5. [Page Development Guidelines](#page-development-guidelines)
 6. [Component Reusability](#component-reusability)
 7. [Performance Optimization](#performance-optimization)
-8. [Testing Practices](#testing-practices)
-9. [Common Pitfalls](#common-pitfalls)
-10. [Development Workflow](#development-workflow)
+8. [MetricFlow Integration](#metricflow-integration)
+9. [BigQuery Integration](#bigquery-integration)
+10. [Testing Practices](#testing-practices)
+11. [Common Pitfalls](#common-pitfalls)
+12. [Development Workflow](#development-workflow)
 
 ---
 
@@ -1178,6 +1183,255 @@ with time_operation("Data Loading"):
 with time_operation("Data Processing"):
     processed = process_data(data)
 ```
+
+---
+
+## MetricFlow Integration
+
+Integrate MetricFlow semantic layer for consistent, governable metrics in Streamlit dashboards.
+
+**Why**: MetricFlow ensures metric consistency, governance, and reusability across all analytics tools.
+
+**Related**: See [MetricFlow + dbt Standards](./metricflow_dbt_standards.md) for semantic layer concepts.
+
+### MetricFlow-First Data Loading
+
+**Pattern**: All dashboard data queries should use MetricFlow-generated SQL, not direct database queries.
+
+**Why**: Ensures metric consistency, governance, and reusability across all analytics tools.
+
+#### Basic Pattern
+
+```python
+import streamlit as st
+from google.cloud import bigquery
+import pandas as pd
+
+@st.cache_data(ttl=3600)
+def load_metric_data(metric_name, start_date, end_date):
+    """
+    Query metrics using MetricFlow semantic layer.
+
+    SQL generated via:
+    mf query --metrics {metric_name} \
+             --group-by metric_time__day \
+             --start-time {start_date} \
+             --explain
+
+    Args:
+        metric_name: Name of the metric to query
+        start_date: Start date (YYYY-MM-DD format)
+        end_date: End date (YYYY-MM-DD format)
+
+    Returns:
+        DataFrame with metric data
+    """
+    client = bigquery.Client(project='your-project')
+
+    # MetricFlow-generated SQL (copy from --explain output)
+    query = f"""
+    SELECT
+      metric_time__day,
+      SUM(value) AS {metric_name}
+    FROM (
+      SELECT
+        DATETIME_TRUNC(event_date, day) AS metric_time__day,
+        value
+      FROM `your-project.your-dataset.your_table`
+      WHERE DATETIME_TRUNC(event_date, day) BETWEEN '{start_date}' AND '{end_date}'
+    ) subq
+    GROUP BY metric_time__day
+    ORDER BY metric_time__day
+    """
+
+    df = client.query(query).to_dataframe()
+
+    # Convert date columns
+    df['date'] = pd.to_datetime(df['metric_time__day']).dt.date
+
+    return df
+```
+
+#### Workflow for MetricFlow Integration
+
+1. **Generate SQL using MetricFlow CLI**:
+```bash
+export DBT_PROFILES_DIR=.
+poetry run mf query \
+  --metrics your_metric \
+  --group-by metric_time__day \
+  --start-time 2025-01-01 \
+  --explain
+```
+
+2. **Copy SELECT statement** from explain output
+
+3. **Parameterize** date filters and dynamic values:
+```python
+# Replace static dates with f-string parameters
+WHERE DATETIME_TRUNC(event_date, day) BETWEEN '{start_date}' AND '{end_date}'
+```
+
+4. **Add to cached function** with appropriate TTL
+
+#### Caching Strategy for Metrics
+
+```python
+# TTL values based on data freshness needs
+
+@st.cache_data(ttl=3600)  # 1 hour - Daily updated data
+def load_daily_metrics(start_date, end_date):
+    """Metrics that update once per day (e.g., revenue, registrations)"""
+    pass
+
+@st.cache_data(ttl=300)  # 5 minutes - Volatile metrics
+def load_realtime_metrics(start_date, end_date):
+    """Metrics that update frequently (e.g., active users, conversion rates)"""
+    pass
+
+@st.cache_data(ttl=86400)  # 24 hours - Dimension tables
+def load_dimension_data():
+    """Reference data that rarely changes (e.g., categories, regions)"""
+    pass
+```
+
+**Why TTL matters**:
+- Prevents stale data in dashboards
+- Reduces BigQuery costs by avoiding redundant queries
+- Improves dashboard responsiveness
+
+#### Exception: Direct BigQuery Queries
+
+**When direct queries are acceptable**:
+- Multi-stage queries requiring user_id filtering
+- Data validation during development
+- Debugging semantic model issues
+
+**Pattern for direct queries**:
+```python
+@st.cache_data(ttl=300)
+def query_user_drill_down(user_ids):
+    """
+    Direct BigQuery query for user-level drill-down.
+
+    Note: Bypasses semantic layer because:
+    - Requires dynamic user_id filtering (Stage 1)
+    - Queries multiple tables without MetricFlow relationship (Stage 2)
+    """
+    client = bigquery.Client(project='your-project')
+
+    # Stage 1: Get users matching criteria
+    stage1_query = f"""
+    SELECT DISTINCT user_id, created_date
+    FROM `your-project.dataset.table`
+    WHERE user_id IN ({','.join([f"'{uid}'" for uid in user_ids])})
+    """
+
+    return client.query(stage1_query).to_dataframe()
+```
+
+---
+
+## BigQuery Integration
+
+Best practices for integrating BigQuery with Streamlit applications.
+
+### BigQuery Client Setup
+
+**CRITICAL**: Initialize BigQuery client INSIDE cached functions, not globally.
+
+#### ✅ Correct Pattern
+
+```python
+@st.cache_data(ttl=3600)
+def load_data():
+    # Client created inside function (fresh instance each cache miss)
+    client = bigquery.Client(project='your-project')
+    return client.query(query).to_dataframe()
+```
+
+#### ❌ Wrong Pattern
+
+```python
+# WRONG: Global client not serializable for caching
+client = bigquery.Client(project='your-project')
+
+@st.cache_data(ttl=3600)
+def load_data():
+    return client.query(query).to_dataframe()
+```
+
+**Why**: Streamlit caching requires all objects to be serializable. BigQuery clients cannot be cached globally.
+
+### Query Parameterization
+
+**Pattern**: Use f-strings for dynamic filters, but validate inputs to prevent SQL injection.
+
+```python
+@st.cache_data(ttl=3600)
+def load_filtered_data(start_date, end_date, status_filter):
+    """
+    Load data with dynamic filters.
+
+    Args:
+        start_date: Date object or string (YYYY-MM-DD)
+        end_date: Date object or string (YYYY-MM-DD)
+        status_filter: List of status values (validated)
+
+    Returns:
+        DataFrame
+    """
+    client = bigquery.Client(project='your-project')
+
+    # Validate inputs to prevent SQL injection
+    allowed_statuses = ['ACTIVE', 'INACTIVE', 'PENDING']
+    if not all(s in allowed_statuses for s in status_filter):
+        raise ValueError(f"Invalid status values. Allowed: {allowed_statuses}")
+
+    # Safe parameterization
+    status_str = "', '".join(status_filter)  # ['ACTIVE', 'PENDING'] → "ACTIVE', 'PENDING"
+
+    query = f"""
+    SELECT *
+    FROM `your-project.dataset.table`
+    WHERE date BETWEEN '{start_date}' AND '{end_date}'
+      AND status IN ('{status_str}')
+    """
+
+    return client.query(query).to_dataframe()
+```
+
+### Cost Optimization with Partition Filters
+
+**Always filter on partition keys** to reduce data scanned.
+
+```python
+@st.cache_data(ttl=3600)
+def load_recent_data():
+    """
+    Load recent data using partition filter.
+
+    Note: table is partitioned on created_date
+    """
+    client = bigquery.Client(project='your-project')
+
+    query = """
+    SELECT user_id, event_type, created_date
+    FROM `your-project.dataset.events`
+    WHERE created_date >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 30 DAY)  -- Partition filter
+      AND user_id IS NOT NULL  -- Cluster filter
+    ORDER BY created_date DESC
+    LIMIT 1000
+    """
+
+    return client.query(query).to_dataframe()
+```
+
+**Best Practices**:
+- Use partition column in WHERE clause (e.g., `created_date`, `event_date`)
+- Use cluster columns for additional filtering
+- Add LIMIT for exploration queries
+- Check `bq show --schema` to identify partition/cluster fields
 
 ---
 

@@ -80,9 +80,16 @@ Individual projects may have their own `.claude/` or `claude/` directories conta
 | `sql_style.md` | SQL formatting standards, naming conventions, query layout |
 | `testing_standards.md` | pytest best practices, coverage targets, test patterns |
 | `error_handling.md` | Exception patterns, logging standards, graceful degradation |
-| `database_standards.md` | SQL file organisation, query optimization, migration conventions |
+| `database_standards.md` | SQL file organisation, query optimisation, migration conventions |
 | `environment_setup.md` | pyenv and poetry setup, Python version selection, dependency management |
 | `streamlit_standards.md` | Streamlit-specific patterns, state management, component organisation |
+| `metricflow_dbt_standards.md` | dbt-core with MetricFlow semantic layer patterns, metric development |
+| `data_visualization_standards.md` | Plotly colour palettes, accessibility, chart guidelines, date formatting |
+| `interactive_visualization_testing.md` | Testing standards for interactive visualisations |
+| `user_journey_diagrams.md` | Customer journey mapping standards and Mermaid patterns |
+| `logging_standards.md` | Logging levels, structured logging, log formatting, and performance |
+| `security_standards.md` | Authentication, authorisation, secrets management, input validation |
+| `api_design_standards.md` | REST API design, versioning, error responses, HTTP best practices |
 
 ### JavaScript & TypeScript Standards
 
@@ -91,20 +98,22 @@ Individual projects may have their own `.claude/` or `claude/` directories conta
 | `typescript_style.md` | ESLint, Prettier, type annotations, naming conventions, patterns |
 | `chrome_extension_standards.md` | Manifest V3, service workers, UI/UX patterns, security |
 | `javascript_testing.md` | Jest unit tests, Playwright E2E tests, mocking patterns |
-| `webpack_standards.md` | Build configuration, optimization, bundling, asset management |
+| `webpack_standards.md` | Build configuration, optimisation, bundling, asset management |
 
 ### General Standards
 
 | File | Purpose |
 |------|---------|
 | `architecture_patterns.md` | Framework-agnostic design principles, modularity, file organisation |
-| `documentation_standards.md` | Docstring requirements, README specs, inline comments |
+| `documentation_standards.md` | Docstring requirements, README specs, inline comments, British English |
+| `documentation_for_claude.md` | Writing documentation optimised for AI consumption |
+| `documentation_for_employees.md` | Writing documentation optimised for human reading |
 | `git_workflow.md` | Conventional Commits, branch naming, PR guidelines |
 | `permissions_patterns.md` | Claude Code permission patterns for different tech stacks |
-| `performance_considerations.md` | Algorithm complexity, profiling, caching, optimization approach |
+| `performance_considerations.md` | Algorithm complexity, profiling, caching, optimisation approach |
 | `claude_workflow.md` | Claude Code planning workflow, plan documentation, task tracking |
 | `project_setup_prompt.md` | **Reusable prompt** for creating project-level reference files |
-| `reference_guide.md` | Meta-guidance for building and organizing Claude Code reference documentation |
+| `reference_guide.md` | Meta-guidance for building and organising Claude Code reference documentation |
 
 ## Update Process
 

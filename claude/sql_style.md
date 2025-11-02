@@ -3,6 +3,9 @@
 **Status**: Strong preference - deviations require justification and approval
 **Scope**: SQL code formatting and naming conventions (BigQuery primary dialect)
 **Platform**: Optimized for Google BigQuery
+**Last Updated**: 2025-10-31
+
+---
 
 ## Overview
 
@@ -1008,9 +1011,4 @@ capitalisation_policy = lower
 - See `database_standards.md` for SQL file organisation and query optimization
 - See `python_style.md` for Python code that generates SQL
 - See `documentation_standards.md` for general documentation requirements
-
----
-
-**Last Updated**: 2025-10-11
-**Status**: Strong preference - deviations require justification
-**Primary Dialect**: Google BigQuery
+- See `testing_standards.md` for SQL query testing patterns
