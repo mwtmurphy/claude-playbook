@@ -96,7 +96,7 @@ app/
 
 The modern API with full control over navigation.
 
-**Why**: Provides programmatic navigation, custom navigation UI, conditional page visibility, and better organization.
+**Why**: Provides programmatic navigation, custom navigation UI, conditional page visibility, and better organisation.
 
 **Basic example:**
 ```python
@@ -1585,7 +1585,7 @@ Before committing, manually verify:
 6. **Test responsiveness**: Verify layout on different screen sizes
 7. **Test performance**: Pages load within acceptable time
 
-### Test Organization
+### Test Organisation
 
 Organize tests by type:
 

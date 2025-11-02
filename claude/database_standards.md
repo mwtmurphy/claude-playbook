@@ -9,7 +9,7 @@ Consistent database practices improve maintainability, performance, and reliabil
 
 **Why**: Well-organized database code is easier to optimize, debug, and evolve.
 
-## SQL File Organization
+## SQL File Organisation
 
 ### Separate SQL from Python Code
 

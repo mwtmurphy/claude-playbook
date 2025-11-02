@@ -1,6 +1,6 @@
 # Development Standards Playbook
 
-A centralised repository of technical standards and best practices for Python and SQL development, designed to be referenced by Claude Code for consistent implementation across projects.
+A centralised repository of technical standards and best practices for Python, SQL, TypeScript, and JavaScript development, designed to be referenced by Claude Code for consistent implementation across projects.
 
 ## Purpose
 
@@ -8,20 +8,37 @@ This repository serves as a reference for Claude Code integration. Standards fil
 
 ## Quick Reference
 
+### Python & SQL Standards
+
 | Standard | Description | File |
 |----------|-------------|------|
 | **Python Style** | PEP 8 compliance, naming conventions, type hints, formatting | [python_style.md](claude/python_style.md) |
 | **SQL Style** | SQL formatting standards, naming conventions, query layout | [sql_style.md](claude/sql_style.md) |
 | **Architecture Patterns** | Framework-agnostic design principles, modularity, file organization | [architecture_patterns.md](claude/architecture_patterns.md) |
 | **Testing Standards** | pytest best practices, coverage targets, test patterns | [testing_standards.md](claude/testing_standards.md) |
-| **Documentation Standards** | Docstring requirements, README specs, inline comments | [documentation_standards.md](claude/documentation_standards.md) |
-| **Git Workflow** | Conventional Commits, branch naming, PR guidelines | [git_workflow.md](claude/git_workflow.md) |
-| **Claude Workflow** | Claude Code planning workflow, plan documentation, task tracking | [claude_workflow.md](claude/claude_workflow.md) |
 | **Error Handling** | Exception patterns, logging standards, graceful degradation | [error_handling.md](claude/error_handling.md) |
 | **Database Standards** | SQL file organization, query optimization, migration conventions | [database_standards.md](claude/database_standards.md) |
 | **Performance Considerations** | Algorithm complexity, profiling, caching, optimization approach | [performance_considerations.md](claude/performance_considerations.md) |
 | **Environment Setup** | pyenv and poetry setup, Python version selection, dependency management | [environment_setup.md](claude/environment_setup.md) |
 | **Streamlit Standards** | Streamlit-specific patterns, state management, component organization | [streamlit_standards.md](claude/streamlit_standards.md) |
+
+### JavaScript & TypeScript Standards
+
+| Standard | Description | File |
+|----------|-------------|------|
+| **TypeScript Style** | ESLint, Prettier, type annotations, naming conventions, patterns | [typescript_style.md](claude/typescript_style.md) |
+| **Chrome Extension Standards** | Manifest V3, service workers, UI/UX patterns, security | [chrome_extension_standards.md](claude/chrome_extension_standards.md) |
+| **JavaScript Testing** | Jest unit tests, Playwright E2E tests, mocking patterns | [javascript_testing.md](claude/javascript_testing.md) |
+| **Webpack Standards** | Build configuration, optimization, bundling, asset management | [webpack_standards.md](claude/webpack_standards.md) |
+
+### General Standards
+
+| Standard | Description | File |
+|----------|-------------|------|
+| **Documentation Standards** | Docstring requirements, README specs, inline comments | [documentation_standards.md](claude/documentation_standards.md) |
+| **Git Workflow** | Conventional Commits, branch naming, PR guidelines | [git_workflow.md](claude/git_workflow.md) |
+| **Permissions Patterns** | Claude Code permission patterns for different tech stacks | [permissions_patterns.md](claude/permissions_patterns.md) |
+| **Claude Workflow** | Claude Code planning workflow, plan documentation, task tracking | [claude_workflow.md](claude/claude_workflow.md) |
 | **Project Setup Prompt** | Reusable prompt for creating project-level reference files | [project_setup_prompt.md](claude/project_setup_prompt.md) |
 | **Reference Guide** | Best practices for building and organising Claude Code reference documentation | [reference_guide.md](claude/reference_guide.md) |
 
@@ -70,8 +87,10 @@ claude-playbook/
     ├── README.md                # Standards directory guide
     ├── python_style.md          # Python coding standards
     ├── sql_style.md             # SQL coding standards
+    ├── typescript_style.md      # TypeScript coding standards
     ├── architecture_patterns.md # Design principles
-    ├── testing_standards.md     # Testing guidelines
+    ├── testing_standards.md     # Python testing (pytest)
+    ├── javascript_testing.md    # JavaScript/TypeScript testing (Jest, Playwright)
     ├── documentation_standards.md
     ├── git_workflow.md
     ├── claude_workflow.md
@@ -80,6 +99,9 @@ claude-playbook/
     ├── performance_considerations.md
     ├── environment_setup.md
     ├── streamlit_standards.md
+    ├── chrome_extension_standards.md  # Chrome extension development
+    ├── webpack_standards.md     # Webpack build configuration
+    ├── permissions_patterns.md  # Claude Code permissions
     ├── project_setup_prompt.md
     └── reference_guide.md       # Meta-guidance for creating standards
 ```
@@ -118,6 +140,6 @@ These standards are provided as reference guidelines. Use and adapt as needed fo
 
 ---
 
-**Last Updated**: 2025-10-30
+**Last Updated**: 2025-11-02
 **Maintained By**: mwtmurphy
 **Status**: Active development

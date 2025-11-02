@@ -187,7 +187,7 @@ def create_user(data: UserData) -> UserId:
     return data["id"]
 ```
 
-## Import Organization
+## Import Organisation
 
 ### Order and Grouping
 

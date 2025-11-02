@@ -37,7 +37,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user.username, "alice")
 ```
 
-## Test Organization
+## Test Organisation
 
 ### Arrange-Act-Assert (AAA) Pattern
 

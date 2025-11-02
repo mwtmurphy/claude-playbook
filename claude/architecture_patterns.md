@@ -382,7 +382,7 @@ def cancel_order_endpoint(order_id: int) -> dict:
         return {"error": str(e)}
 ```
 
-## SQL File Organization
+## SQL File Organisation
 
 ### Keep SQL Separate from Python
 
@@ -432,7 +432,7 @@ sql/
     └── 002_add_email_index.sql
 ```
 
-**Why**: Clear organization makes queries easy to find, review, and version control.
+**Why**: Clear organisation makes queries easy to find, review, and version control.
 
 ## Dependency Management
 
